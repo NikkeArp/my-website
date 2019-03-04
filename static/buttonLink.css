@@ -1,0 +1,29 @@
+/*****************************************************************/
+/** This stylesheet defines styles links that look like buttons **/
+/*****************************************************************/
+
+a.buttonLink:link, a.buttonLink:visited {
+    background-image: linear-gradient(to top left, #232323, #474747);
+    color: inherit;
+    padding: 1em;
+    height: 1.5em;
+    width: 9em;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: .05em;
+}
+
+a.buttonLink:hover, a.buttonLink:active {
+    background-image: linear-gradient(to top left, #3b3b3b, #5a5a5a);
+}
+
+#footerLink {
+    height: 0.8em;
+    width: 7em;
+    margin-left: 0.5em;
+}

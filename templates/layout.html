@@ -3,6 +3,7 @@
 
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='layoutStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='buttonLink.css') }}">
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock title %}</title>
   </head>
@@ -15,7 +16,8 @@
     {% block content %}{% endblock content %}
     <footer>
       {% block footer %}
-      <p>&copy; Copyright 2019 by <a href="http://domain.invalid/">Niklas Seppälä</a></p>
+      <p>&copy; Copyright 2019 by</p><a id="footerLink" class="buttonLink" href="http://domain.invalid/">Niklas
+        Seppälä</a>
       {% endblock footer %}
     </footer>
   </body>

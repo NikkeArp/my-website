@@ -39,6 +39,11 @@ def logout():
     return redirect(url_for("index_page"))
 
 
+@app.route("/playground")
+def playground_page():
+    return render_template("playground.html")
+
+
 @app.route("/languages")
 def language_page():
     return render_template("languages.html")

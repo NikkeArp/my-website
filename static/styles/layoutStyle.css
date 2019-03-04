@@ -44,15 +44,11 @@ nav {
 }
 
 div.accountLinks {
-    display: flex;
-    justify-content: space-around;
-
+    border: none; /*PLACEHOLDER*/
 }
 
 div.internalLinks {
     margin-left: auto;
-    display: flex;
-
 }
 
 section {

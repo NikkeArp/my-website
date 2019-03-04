@@ -1,12 +1,12 @@
 $(document).ready(function () {
     $("#mainHeader")[0].innerHTML =
-        '<span style="color: #cc7a00">Welcome</span>'
-        + '<span style="color:#ffff4d;">.</span>'
-        + '<span style="color: #999999">to</span>'
-        + '<span style="color:#d3d9b4;">(</span>'
-        + '</span><span style="color: #cc7a00">My</span>'
-        + '<span style="color:#ffff4d;">.</span>'
-        + '<span style="color: #999999">domain</span>'
-        + '<span style="color:#d3d9b4;">())</span>'
-        + '<span style="color:#ffff4d;">;</span>'
+        '<span style="color: #50abd8">Welcome</span>'
+        + '<span style="color:#f4f6f7;">.</span>'
+        + '<span style="color: #efc26e">to</span>'
+        + '<span style="color:#f4f6f7;">(</span>'
+        + '<span style="color: #50abd8">My</span>'
+        + '<span style="color:#f4f6f7;">.</span>'
+        + '<span style="color: #efc26e">domain</span>'
+        + '<span style="color:#f4f6f7;">(<span style="color:#55c13a">"Nikke"</span>))</span>'
+        + '<span style="color:#f4f6f7;">;</span>'
 });

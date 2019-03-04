@@ -24,9 +24,9 @@ header {
 
     padding-left: 30px;
 
-    font-size: 40px;
+    font-size: 28px;
 
-    height: 6em;
+    height: 8em;
 }
 
 
@@ -69,11 +69,14 @@ aside {
 
     display: flex;
     flex-direction: column;
+    justify-content: right;
     
     width: 20%;
     height: 100%;
 
-    padding: 1.3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2.5em;
     padding-right: 2.5em;
 }
 

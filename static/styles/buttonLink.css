@@ -31,7 +31,6 @@ a.buttonLink:hover, a.buttonLink:active {
     margin-left: 0.5em;
 }
 
-
 div.imgLink {
     background-image: linear-gradient(to top left, #1b1b1b, #474747);
 
@@ -45,5 +44,5 @@ div.imgLink {
 
 div.imgLink:hover {
     background-image: linear-gradient(to top left, #1b1b1b, #555555);
-    width: 101%;
+    padding-right: 1em;
 }

@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block title %}Front Page{% endblock title %}
+{% block title %}Account Page{% endblock title %}
 {% block header %}{% endblock header %}
 {% block content %}
 <nav>
@@ -9,27 +9,23 @@
     <a class="buttonLink" href="#">Link 5 goes to #</a>
   </div>
   <div class="accountLinks">
-    <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
+    <a id="accSettingsLink" class="buttonLink" href="./account/settings">Settings</a>
     <a id="logoutLink" class="buttonLink" href="#">LOGOUT</a>
   </div>
 </nav>
 <section>
   <article>
     <h2>Pattern Matching</h2>
-    <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to simplify
-      your code. This technique can be implemented into any type of Type class. If-Else can be used as an alternate
+    <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to
+      simplify
+      your code. This technique can be implemented into any type of Type class. If-Else can be used as an
+      alternate
       option of pattern matching.</p>
-    <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods can
+    <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods
+      can
       be executed depending on their argument list.</p>
     <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
       factorial of a number.</p>
   </article>
-  <aside>
-    <a class="asideLink" href="#">Aside Link 1</a>
-    <a class="asideLink" href="#">Aside Link 2</a>
-    <a class="asideLink" href="#">Aside Link 3</a>
-    <a class="asideLink" href="#">Aside Link 4</a>
-    <a class="asideLink" href="#">Aside Link 5</a>
-  </aside>
 </section>
 {% endblock content %}

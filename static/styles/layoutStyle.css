@@ -43,9 +43,7 @@ nav {
     height: 3.1em;
 }
 
-div.loginLinks {
-    
-
+div.accountLinks {
     display: flex;
     justify-content: space-around;
 

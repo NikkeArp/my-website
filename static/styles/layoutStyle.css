@@ -3,8 +3,9 @@
 /*****************************************************************/
 
 body {
+    background-image: linear-gradient(to bottom right, #2b2b2b, black);
+
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #404040;
     color: #e4e4e4;
 
     margin: 0px;
@@ -15,8 +16,6 @@ nav, section, article, header, aside, footer {
 }
 
 header {
-    border: none;
-
     background-image: linear-gradient(to bottom right, #2b2b2b, black);
 
     display: flex;
@@ -25,20 +24,18 @@ header {
 
     padding-left: 30px;
 
-    font-size: 30px;
+    font-size: 40px;
 
     height: 6em;
 }
 
 
 nav {
-    background-color: #646464;
+    background-color: #302f2f;
     
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    padding-left: 1em;
 
     height: 3.1em;
 }
@@ -48,37 +45,41 @@ div.accountLinks {
 }
 
 div.internalLinks {
-    margin-left: auto;
     display: flex;
+    margin-left: auto;
 }
 
 section {
+    background-image: linear-gradient(to bottom right, #3d3d3d,  #000);
+
     display: flex;
-    margin-bottom: 2em;
-    padding: 2em;
 }
 
 article {
-    padding: 2em;
-    background-color: #646464;
+    background-color: #414141;
 
-    width: 75%;
+    height: 1600px;
+    width: 80%;
+
+    padding: 8em;
 }
 
 aside {
-    background-color: #646464;
+    background-color: #494949;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     
-    width: 25%;
+    width: 20%;
+    height: 100%;
 
-    margin-left: 1em;
+    padding: 1.3em;
+    padding-right: 2.5em;
 }
 
 footer {
-    background-color: #646464;
+    background-color: #302f2f;
+
     display: flex;
     justify-content: center;
     align-items: center;

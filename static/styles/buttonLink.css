@@ -3,12 +3,8 @@
 /*****************************************************************/
 
 a.buttonLink:link, a.buttonLink:visited {
-    background-image: linear-gradient(to top left, #232323, #474747);
+    background-image: linear-gradient(to top left, #1b1b1b, #474747);
     color: inherit;
-    padding: 1em;
-    height: 1em;
-    width: 9em;
-
     text-decoration: none;
 
     display: flex;
@@ -16,10 +12,13 @@ a.buttonLink:link, a.buttonLink:visited {
     justify-content: center;
 
     margin: .05em;
+    padding: 1em;
+    height: 1em;
+    width: 9em;
 }
 
 a.buttonLink:hover, a.buttonLink:active {
-    background-image: linear-gradient(to top left, #3b3b3b, #5a5a5a);
+    background-image: linear-gradient(to top left, #1b1b1b, #555555);
 }
 
 #loginLink, #logoutLink {
@@ -30,4 +29,21 @@ a.buttonLink:hover, a.buttonLink:active {
     height: 0.5em;
     width: 7em;
     margin-left: 0.5em;
+}
+
+
+div.imgLink {
+    background-image: linear-gradient(to top left, #1b1b1b, #474747);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5em;
+    height: 100px;
+}
+
+div.imgLink:hover {
+    background-image: linear-gradient(to top left, #1b1b1b, #555555);
+    width: 101%;
 }

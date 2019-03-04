@@ -6,7 +6,7 @@ a.buttonLink:link, a.buttonLink:visited {
     background-image: linear-gradient(to top left, #232323, #474747);
     color: inherit;
     padding: 1em;
-    height: 1.5em;
+    height: 1em;
     width: 9em;
 
     text-decoration: none;
@@ -22,8 +22,12 @@ a.buttonLink:hover, a.buttonLink:active {
     background-image: linear-gradient(to top left, #3b3b3b, #5a5a5a);
 }
 
+#loginLink, #logoutLink {
+    width: 6em;
+} 
+
 #footerLink {
-    height: 0.8em;
+    height: 0.5em;
     width: 7em;
     margin-left: 0.5em;
 }

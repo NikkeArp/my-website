@@ -37,11 +37,12 @@ nav {
     flex-direction: row;
     align-items: center;
 
-    height: 3.1em;
+    height: 3.6em;
 }
 
 div.accountLinks {
     display: flex;
+    margin-right: 4.9em;
 }
 
 div.internalLinks {

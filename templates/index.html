@@ -1,74 +1,69 @@
 {% extends 'layout.html' %}
 {% block title %}Front Page{% endblock title %}
-{% block head %}
-    <script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
-{% endblock head %}
-{% block header %}
-      <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>
-{% endblock header %}
-{% block content %}
-<nav>
-  <div class="internalLinks">
-    <a class="buttonLink" href="./languages">Languages</a>
-    <a class="buttonLink" href="./playground">Playground</a>
-  </div>
-  <div class="accountLinks">
-    <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
-    <a id="logoutLink" class="buttonLink" href="./logout">LOGOUT</a>
-  </div>
-</nav>
-<section>
-  <article>
-    <h2>Pattern Matching</h2>
-    <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to simplify
-      your code. This technique can be implemented into any type of Type class. If-Else can be used as an alternate
-      option of pattern matching.</p>
-    <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods can
-      be executed depending on their argument list.</p>
-    <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
-      factorial of a number.</p>
-  </article>
-  <aside>
-    <a class="asideLink" href="https://github.com/NikkeArp">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/GitHubText.png" width="100" height="35" />
-        <img class="link" src="./static/linkLogos/github.png" width="80" height="80" />
+{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
+{% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
+{% block nav %}<nav>
+      <div class="internalLinks">
+        <a class="buttonLink" href="./languages">Languages</a>
+        <a class="buttonLink" href="./playground">Playground</a>
       </div>
-    </a>
-    </a>
-    <a class="asideLink" href="https://stackexchange.com/">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/stackExchange.png" width="220" height="60" />
+      <div class="accountLinks">
+        <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
+        <a id="logoutLink" class="buttonLink" href="./logout">LOGOUT</a>
       </div>
-    </a>
-    <a class="asideLink" href="https://stackoverflow.com/">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/stackOverflow.png" width="220" height="60" />
-      </div>
-    </a>
-    <a class="asideLink" href="https://www.dotabuff.com/players/78123870" style="text-decoration:none;">
-      <div class="imgLink">
-        <div id=dotaLogo
-          style="height: 1.5em; background-color: #ed3b1c; width: 6em; font-size: 35px; display: flex; align-items: center; justify-content: center">
-          <span style="color:white;">DOTABUFF<span>
-        </div>
-      </div>
-    </a>
-    <a class="asideLink" href="https://steamcommunity.com/profiles/76561198038389598">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/steam.png" width="80" height="80" />
-      </div>
-    </a>
-    <a class="asideLink" href="https://discord.com/">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/discord.svg" width="220" height="95" />
-      </div>
-    </a>
-    <a class="asideLink" href="https://discord.com/">
-      <div class="imgLink">
-        <img class="link" src="./static/linkLogos/spotify.png" width="200" height="60" />
-      </div>
-    </a>
-  </aside>
-</section>
-{% endblock content %}
+    </nav>{% endblock nav %}
+{% block content %}<section>
+        <article>
+          <h2>Pattern Matching</h2>
+          <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to simplify
+            your code. This technique can be implemented into any type of Type class. If-Else can be used as an alternate
+            option of pattern matching.</p>
+          <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods can
+            be executed depending on their argument list.</p>
+          <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
+            factorial of a number.</p>
+        </article>
+        <aside>
+          <a class="asideLink" href="https://github.com/NikkeArp">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/GitHubText.png" width="100" height="35" />
+              <img class="link" src="./static/linkLogos/github.png" width="80" height="80" />
+            </div>
+          </a>
+          </a>
+          <a class="asideLink" href="https://stackexchange.com/">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/stackExchange.png" width="220" height="60" />
+            </div>
+          </a>
+          <a class="asideLink" href="https://stackoverflow.com/">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/stackOverflow.png" width="220" height="60" />
+            </div>
+          </a>
+          <a class="asideLink" href="https://www.dotabuff.com/players/78123870" style="text-decoration:none;">
+            <div class="imgLink">
+              <div id=dotaLogo
+                style="height: 1.5em; background-color: #ed3b1c; width: 6em; font-size: 35px; display: flex; align-items: center; justify-content: center">
+                <span style="color:white;">DOTABUFF<span>
+              </div>
+            </div>
+          </a>
+          <a class="asideLink" href="https://steamcommunity.com/profiles/76561198038389598">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/steam.png" width="80" height="80" />
+            </div>
+          </a>
+          <a class="asideLink" href="https://discord.com/">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/discord.svg" width="220" height="95" />
+            </div>
+          </a>
+          <a class="asideLink" href="https://discord.com/">
+            <div class="imgLink">
+              <img class="link" src="./static/linkLogos/spotify.png" width="200" height="60" />
+            </div>
+          </a>
+        </aside>
+      </section>
+  </div>{% endblock content %}

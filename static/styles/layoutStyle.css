@@ -7,7 +7,6 @@ body {
 
     font-family: Arial, Helvetica, sans-serif;
     color: #e4e4e4;
-
     margin: 0px;
 }
 
@@ -51,10 +50,16 @@ div.internalLinks {
 }
 
 section {
+
+    width: 90%;
+
     background-image: linear-gradient(to bottom right, #3d3d3d,  #000);
     display: flex;
-    margin-left: 5em;
-    margin-right: 5em;
+}
+
+div.content{
+    display: flex;
+    justify-content: center;
 }
 
 article {

@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/layoutStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/buttonLink.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {% block head %}
-    {% endblock head %}
+    {% block head %}{% endblock head %}
     <title>{% block title %}{% endblock title %}</title>
   </head>
-
   <body>
     <header>
       <h1>
@@ -18,14 +15,15 @@
           <span style="color: #50abd8">Welcome</span><span style="color:#f4f6f7;">.</span><span style="color: #efc26e">to</span><span style="color:#f4f6f7;">(</span><span style="color:#f4f6f7;">(</span><span style="color: #50abd8">My</span><span style="color:#f4f6f7;">.</span><span style="color: #efc26e">domain</span><span style="color:#f4f6f7;">())</span><span style="color:#f4f6f7;">;</span>
       </code>
       </h1>
-      {% block header %}{% endblock header %}
+    {% block header %}{% endblock header %}
     </header>
-    {% block content %}{% endblock content %}
+    {% block nav %}{% endblock nav %}
+    <div class="content">
+      {% block content %}{% endblock content %}
+    </div>
     <footer>
-      {% block footer %}
-      <p>&copy; Copyright 2019 by</p><a id="footerLink" class="buttonLink" href="http://domain.invalid/">Niklas
-        Seppälä</a>
-      {% endblock footer %}
+        {% block footer %}<p>&copy; Copyright 2019 by</p><a id="footerLink" class="buttonLink" href="http://domain.invalid/">Niklas
+        Seppälä</a>{% endblock footer %}
     </footer>
   </body>
 

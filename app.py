@@ -60,6 +60,11 @@ def admin_page():
 
 @app.route("/logout")
 def logout():
+
+    session["logged_in"] = False
+    session["account_name"] = ""
+    session["admin_logged_in"] = False
+
     return redirect(url_for("index_page"))
 
 

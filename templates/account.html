@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
-{% block title %}Account Page{% endblock title %}
-{% block header %}{% endblock header %}
+{% block head %}
+    <script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
+{% endblock head %}
+{% block title %}{{ session["account_name"] }}'s Page{% endblock title %}
+{% block header %}
+      <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
 {% block content %}
 <nav>
   <div class="internalLinks">
@@ -14,17 +18,7 @@
 </nav>
 <section>
   <article>
-    <h2>Pattern Matching</h2>
-    <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to
-      simplify
-      your code. This technique can be implemented into any type of Type class. If-Else can be used as an
-      alternate
-      option of pattern matching.</p>
-    <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods
-      can
-      be executed depending on their argument list.</p>
-    <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
-      factorial of a number.</p>
+    <h2>Welcome to your account page, {{ session["account_name"] }}!</h2>
   </article>
 </section>
 {% endblock content %}

@@ -3,26 +3,35 @@
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
 {% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
 {% block nav %}<nav>
-      <div class="internalLinks">
-        <a class="buttonLink" href="./languages">Languages</a>
-        <a class="buttonLink" href="./playground">Playground</a>
-      </div>
-      <div class="accountLinks">
-        <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
-        <a id="logoutLink" class="buttonLink" href="./logout">LOGOUT</a>
+      <div class="navLinks">
+        <div class="internalLinks">
+            <a class="buttonLink" href="./">Back</a>
+            <a class="buttonLink" href="./languages">Languages</a>
+            <a class="buttonLink" href="./playground">Playground</a>
+            <a class="buttonLink" href="./code">Code</a>
+            <a class="buttonLink" href="./editor">Editor</a>
+            <a class="buttonLink" href="./dota">Dota</a>
+          </div>
+          <div style="width:35%;"></div>
+          <div class="accountLinks">
+            <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
+            <a id="logoutLink" class="buttonLink" href="./logout">LOGOUT</a>
+          </div>
       </div>
     </nav>{% endblock nav %}
 {% block content %}<section>
-        <article>
-          <h2>Pattern Matching</h2>
-          <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to simplify
-            your code. This technique can be implemented into any type of Type class. If-Else can be used as an alternate
-            option of pattern matching.</p>
-          <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods can
-            be executed depending on their argument list.</p>
-          <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
-            factorial of a number.</p>
-        </article>
+        <div class="articles">
+          <article>
+            <h2>Pattern Matching</h2>
+            <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to simplify
+              your code. This technique can be implemented into any type of Type class. If-Else can be used as an alternate
+              option of pattern matching.</p>
+            <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods can
+              be executed depending on their argument list.</p>
+            <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
+              factorial of a number.</p>
+          </article>
+        </div>
         <aside>
           <a class="asideLink" href="https://github.com/NikkeArp">
             <div class="imgLink">

@@ -3,7 +3,7 @@
 /*****************************************************************/
 
 body {
-    background-image: linear-gradient(to bottom right, #2b2b2b, black);
+    background-color: #414141;
 
     font-family: Arial, Helvetica, sans-serif;
     color: #e4e4e4;
@@ -23,7 +23,7 @@ header {
 
     padding-left: 30px;
 
-    font-size: 28px;
+    font-size: 22px;
 
     height: 8em;
 }
@@ -33,28 +33,32 @@ nav {
     background-color: #302f2f;
     
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
 
     height: 3.6em;
 }
 
+div.navLinks {
+    width: 96%;
+    display: flex;
+}
+
 div.accountLinks {
     display: flex;
-    margin-right: 4.9em;
+    width: 20%;
 }
 
 div.internalLinks {
     display: flex;
-    margin-left: auto;
+    justify-content: space-between;
+
+    width: 45%;
 }
 
 section {
-
-    width: 90%;
-
-    background-image: linear-gradient(to bottom right, #3d3d3d,  #000);
+    width: 96%;
     display: flex;
+    flex-direction: row;
 }
 
 div.content{
@@ -62,39 +66,36 @@ div.content{
     justify-content: center;
 }
 
-article {
+div.articles {
     background-color: #414141;
     width: 80%;
-
-    padding: 8em;
 }
 
-h2 {
-    font-size: 30px;
+article {
+    width: 80%;
+    margin-left: 2em;
+    margin-top: 2em;
 }
 
-p {
-    font-size: 20px;
-}
+h2 {font-size: 30px;}
+p {font-size: 20px;}
 
 aside {
-    background-color: #494949;
+    background-color: #414141;
 
     display: flex;
     flex-direction: column;
     justify-content: right;
     
     width: 20%;
-    height: 100%;
 
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2.5em;
-    padding-right: 2.5em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
 }
 
 footer {
-    background-color: #1f1e1e;
+    background-image: linear-gradient(to bottom right, #2b2b2b, black);
 
     display: flex;
     justify-content: center;

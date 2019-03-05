@@ -11,7 +11,6 @@ a.buttonLink:link, a.buttonLink:visited {
     align-items: center;
     justify-content: center;
 
-    margin: .05em;
     padding: 1em;
     height: 1.5em;
     width: 9em;
@@ -22,7 +21,7 @@ a.buttonLink:hover, a.buttonLink:active {
 }
 
 #loginLink, #logoutLink {
-    width: 6em;
+    width: 50%;
 } 
 
 #footerLink {
@@ -39,7 +38,10 @@ div.imgLink {
     justify-content: center;
 
     padding: 0.5em;
-    height: 100px;
+    height: 111px;
+    margin: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 div.imgLink:hover {

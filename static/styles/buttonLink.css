@@ -4,16 +4,16 @@
 
 a.buttonLink:link, a.buttonLink:visited {
     background-image: linear-gradient(to top left, #1b1b1b, #474747);
+
     color: #d8d8d8;
+    font-size: 24px;
     text-decoration: none;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 1em;
-    height: 1.5em;
-    width: 9em;
+    min-width: 7em;
 }
 
 a.buttonLink:hover, a.buttonLink:active {

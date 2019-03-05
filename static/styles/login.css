@@ -1,3 +1,83 @@
 /*****************************************************************/
 /****    This stylesheet defines styles for login page        ****/
 /*****************************************************************/
+
+section.loginSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article.loginArticle {
+    background-color: #474747;
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 14em;
+}
+
+div.formBox {
+    background-image: linear-gradient(to bottom right, #363636,  #242424);
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.formHeader {
+    font-size: 30px;
+    margin-top: 1em;
+}
+
+div.controlGrp {
+    padding: 0.2em;
+    margin: 0.5em;
+}
+
+input {
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+    height: 2.5em;
+    width: 12em;
+
+    border: 2px solid transparent;
+    transition: border .5s;
+
+    font-size: 20px;
+}
+
+input:focus {
+    border: 2px solid #efc26e;
+    box-shadow: none;
+    outline: none;
+}
+
+
+input.submtButton {
+    background-image: linear-gradient(to top left, #2c2c2c, #5c5c5c);
+    color: #d8d8d8;
+    border: none;
+    margin: 1em;
+    height: 3em;
+    width: 12.5em;
+}
+
+input.submtButton:hover {
+    background-image: linear-gradient(to top left, #2c2c2c, #646464);
+    box-shadow: 2px 3px 10px black;
+    cursor: pointer;
+    
+}
+
+
+#loginForm {
+    height: 500px;
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}

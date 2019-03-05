@@ -16,10 +16,7 @@ admin_user = 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472
 
 @app.route("/")
 def index_page():
-    if session.get("logged_in"):
-        return redirect(url_for("account_page"))
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 
 @app.route("/login", methods=["POST", "GET"])

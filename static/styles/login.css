@@ -54,6 +54,10 @@ input:focus {
     outline: none;
 }
 
+#loginBackLink {
+    width: 7.2em;
+}
+
 
 input.submtButton {
     background-image: linear-gradient(to top left, #2c2c2c, #5c5c5c);

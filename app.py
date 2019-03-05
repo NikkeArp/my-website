@@ -16,12 +16,36 @@ admin_user = 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472
 
 @app.route("/")
 def index_page():
-    return render_template("index.html")
+    if session.get("logged_in"):
+        return redirect(url_for("account_page"))
+    else:
+        return render_template("index.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["POST", "GET"])
 def login_page():
-    return render_template("login.html")
+    try:
+        if session["logged_in"]:
+            return redirect(url_for("account_page"))
+    except:
+        pass
+
+    try:
+        password_hasher = hashlib.sha512()
+        user_hasher = hashlib.sha512()
+
+        password_hasher.update(request.form["password"])
+        user_hasher.update(request.form["username"])
+
+        if password_hasher.hexdigest() == password and user_hasher.hexdigest() == user:
+            session["logged_in"] = True
+            session["account_name"] = request.form["username"].capitalize()
+
+            return redirect(url_for("account_page"))
+        else:
+            return render_template("login.html")
+    except:
+        return render_template("login.html")
 
 
 @app.route("/account")

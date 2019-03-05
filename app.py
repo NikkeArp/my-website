@@ -42,6 +42,9 @@ def login_page():
             session["account_name"] = request.form["username"].capitalize()
 
             return redirect(url_for("account_page"))
+        elif password_hasher.hexdigest() == admin_password and user_hasher.hexdigest() == admin_user:
+            session["admin_logged_in"] = True
+            return redirect(url_for("admin_page"))
         else:
             return render_template("login.html")
     except:

@@ -65,6 +65,14 @@ article {
     padding: 8em;
 }
 
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
 aside {
     background-color: #494949;
 
@@ -82,11 +90,13 @@ aside {
 }
 
 footer {
-    background-color: #302f2f;
+    background-color: #1f1e1e;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: #ffffff2c;
 
     height: 2.8em;
 }

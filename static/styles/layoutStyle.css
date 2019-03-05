@@ -51,8 +51,9 @@ div.internalLinks {
 
 section {
     background-image: linear-gradient(to bottom right, #3d3d3d,  #000);
-
     display: flex;
+    margin-left: 5em;
+    margin-right: 5em;
 }
 
 article {

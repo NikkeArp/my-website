@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block title %}Game Page{% endblock title %}
+{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
+{% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
+{% block nav %}<nav>
+  <div class="navLinks">
+    <div class="internalLinks">
+      <a class="buttonLink" href="./languages">Languages</a>
+      <a class="buttonLink" href="./playground">Playground</a>
+      <a class="buttonLink" href="./code">Code</a>
+      <a class="buttonLink" href="./editor">Editor</a>
+      <a class="buttonLink" href="./games">Games</a>
+      <a class="buttonLink" href="./media">Media</a>
+      <a class="buttonLink" href="./">Back</a>
+    </div>
+    <div style="width:35%;"></div> <!--Separator Div-->
+    <div class="accountLinks">
+      <a id="loginLink" class="buttonLink" href="./login">Log In</a>
+      <a id="logoutLink" class="buttonLink" href="./logout">Log Out</a>
+    </div>
+  </div>
+</nav>{% endblock nav %}
+{% block content %}<section>
+  <div class="articles">
+    <article>
+      <a class="buttonLink" href="./games/dota">Dota</a>
+      <a class="buttonLink" href="#">CS:GO</a>
+      <a class="buttonLink" href="#">Ibb&Obb</a>
+    </article>
+  </div>
+</section>
+{% endblock content %}

@@ -78,6 +78,31 @@ def language_page():
     return render_template("languages.html")
 
 
+@app.route("/media")
+def media_page():
+    return render_template("media.html")
+
+
+@app.route("/games")
+def games():
+    return render_template("games.html")
+
+
+@app.route("/games/dota")
+def dota_page():
+    return render_template("dota.html")
+
+
+@app.route("/code")
+def code_page():
+    return render_template("code.html")
+
+
+@app.route("/editor")
+def editor_page():
+    return render_template("editor.html")
+
+
 if __name__ == '__main__':
     app.secret_key = urandom(24)
     app.run(debug=True)

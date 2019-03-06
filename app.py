@@ -23,7 +23,7 @@ def index_page():
 def login_page():
     try:
         if session["logged_in"]:
-            return redirect(url_for("account_page"))
+            return redirect(url_for("account/account_page"))
     except:
         pass
 
@@ -43,19 +43,19 @@ def login_page():
             session["admin_logged_in"] = True
             return redirect(url_for("admin_page"))
         else:
-            return render_template("login.html")
+            return render_template("internal/login.html")
     except:
-        return render_template("login.html")
+        return render_template("internal/login.html")
 
 
 @app.route("/account")
 def account_page():
-    return render_template("account.html")
+    return render_template("account/account.html")
 
 
 @app.route("/admin")
 def admin_page():
-    return render_template("admin.html")
+    return render_template("account/admin.html")
 
 
 @app.route("/logout")
@@ -70,37 +70,37 @@ def logout():
 
 @app.route("/playground")
 def playground_page():
-    return render_template("playground.html")
+    return render_template("internal/playground.html")
 
 
 @app.route("/languages")
 def language_page():
-    return render_template("languages.html")
+    return render_template("internal/languages.html")
 
 
 @app.route("/media")
 def media_page():
-    return render_template("media.html")
+    return render_template("internal/media.html")
 
 
 @app.route("/games")
 def games():
-    return render_template("games.html")
+    return render_template("internal/games.html")
 
 
 @app.route("/games/dota")
 def dota_page():
-    return render_template("dota.html")
+    return render_template("games/dota.html")
 
 
 @app.route("/code")
 def code_page():
-    return render_template("code.html")
+    return render_template("internal/code.html")
 
 
 @app.route("/editor")
 def editor_page():
-    return render_template("editor.html")
+    return render_template("internal/editor.html")
 
 
 if __name__ == '__main__':

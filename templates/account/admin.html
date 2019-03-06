@@ -1,10 +1,11 @@
-{% extends 'layout.html' %}
+{% extends 'base/layout.html' %}
+{% block title %}Admin Page{% endblock title %}
 {% block head %}
     <script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
 {% endblock head %}
-{% block title %}{{ session["account_name"] }}'s Page{% endblock title %}
 {% block header %}
-      <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
+      <span id="accountName" style="visibility: hidden;">admin</span>
+{% endblock header %}
 {% block content %}
 <nav>
   <div class="internalLinks">
@@ -18,7 +19,7 @@
 </nav>
 <section>
   <article>
-    <h2>Welcome to your account page, {{ session["account_name"] }}!</h2>
+    <h2>Welcome Admin</h2>
   </article>
 </section>
 {% endblock content %}

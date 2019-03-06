@@ -1,5 +1,5 @@
-{% extends 'layout.html' %}
-{% block title %}Media Page{% endblock title %}
+{% extends 'base/layout.html' %}
+{% block title %}Code Page{% endblock title %}
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
 {% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
 {% block nav %}<nav>
@@ -23,7 +23,7 @@
 {% block content %}<section>
   <div class="articles">
     <article>
-      <h2>MEDIA PAGE</h2>
+      <h2>CODE PAGE</h2>
     </article>
   </div>
 </section>

@@ -1,3 +1,4 @@
+{% from 'base/macros.html' import nav %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +18,7 @@
       </h1>
     {% block header %}{% endblock header %}
     </header>
-    {% block nav %}{% endblock nav %}
+    {% block nav %}{{ nav() }}{% endblock nav %}
     <div class="content">
       {% block content %}{% endblock content %}
     </div>

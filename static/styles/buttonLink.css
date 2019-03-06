@@ -20,6 +20,11 @@ a.buttonLink:hover, a.buttonLink:active {
     background-image: linear-gradient(to top left, #1b1b1b, #555555);
 }
 
+a.navLink {
+    width: 16.66%;
+}
+
+
 #loginLink, #logoutLink {
     width: 50%;
 } 
@@ -30,6 +35,10 @@ a.buttonLink:hover, a.buttonLink:active {
     height: 90%;
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+#backToFront {
+    width: 30%;
 }
 
 div.imgLink {

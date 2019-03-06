@@ -50,6 +50,7 @@ div.accountLinks {
 
 div.navSeparator {
     width: 30%;
+    display: flex;
 }
 
 div.internalLinks {

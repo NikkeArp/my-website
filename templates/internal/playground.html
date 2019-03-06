@@ -1,7 +1,6 @@
 {% extends 'base/layout.html' %}
 {% block title %}Playground Page{% endblock title %}
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
-{% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
 {% block content %}<section>
   <div class="articles">
     <article>

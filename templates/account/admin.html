@@ -1,22 +1,7 @@
 {% extends 'base/layout.html' %}
 {% block title %}Admin Page{% endblock title %}
-{% block head %}
-    <script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
-{% endblock head %}
-{% block header %}
-      <span id="accountName" style="visibility: hidden;">admin</span>
-{% endblock header %}
+{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
 {% block content %}
-<nav>
-  <div class="internalLinks">
-    <a class="buttonLink" href="./languages">Languages</a>
-    <a class="buttonLink" href="./playground">Playground</a>
-  </div>
-  <div class="accountLinks">
-    <a id="accSettingsLink" class="buttonLink" href="./account/settings">Settings</a>
-    <a id="logoutLink" class="buttonLink" href="./logout">LOGOUT</a>
-  </div>
-</nav>
 <section>
   <article>
     <h2>Welcome Admin</h2>

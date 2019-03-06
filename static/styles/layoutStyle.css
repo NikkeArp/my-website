@@ -48,11 +48,15 @@ div.accountLinks {
     width: 20%;
 }
 
+div.navSeparator {
+    width: 30%;
+}
+
 div.internalLinks {
     display: flex;
     justify-content: space-between;
 
-    width: 45%;
+    width: 50%;
 }
 
 section {

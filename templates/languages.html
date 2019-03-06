@@ -1,30 +1,30 @@
 {% extends 'layout.html' %}
 {% block title %}Languages Page{% endblock title %}
-{% block header %}{% endblock header %}
-{% block content %}
-<nav>
-  <div class="internalLinks">
-    <a class="buttonLink" href="./">Back</a>
-    <a class="buttonLink" href="./playground">Playground</a>
+{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
+{% block header %}  <span id="accountName" style="visibility: hidden;">{{ session["account_name"] }}</span>{% endblock header %}
+{% block nav %}<nav>
+  <div class="navLinks">
+    <div class="internalLinks">
+        <a class="buttonLink" href="./languages">Languages</a>
+        <a class="buttonLink" href="./playground">Playground</a>
+        <a class="buttonLink" href="./code">Code</a>
+        <a class="buttonLink" href="./editor">Editor</a>
+        <a class="buttonLink" href="./games">Games</a>
+        <a class="buttonLink" href="./media">Media</a>
+        <a class="buttonLink" href="./">Back</a>
+      </div>
+      <div class="navSeparator"></div> <!--Separator Div-->
+      <div class="accountLinks">
+        <a id="loginLink" class="buttonLink" href="./login">Log In</a>
+        <a id="logoutLink" class="buttonLink" href="./logout">Log Out</a>
+      </div>
+    </div>
+  </nav>{% endblock nav %}
+{% block content %}<section>
+  <div class="articles">
+    <article>
+      <h2>LANGUAGES PAGE</h2>
+    </article>
   </div>
-  <div class="accountLinks">
-    <a id="loginLink" class="buttonLink" href="./login">LOGIN</a>
-    <a id="logoutLink" class="buttonLink" href="#">LOGOUT</a>
-  </div>
-</nav>
-<section>
-  <article>
-    <h2>Pattern Matching</h2>
-    <p>Pattern Matching is process of matching specific type of expressions. It is nothing but a technique to
-      simplify
-      your code. This technique can be implemented into any type of Type class. If-Else can be used as an
-      alternate
-      option of pattern matching.</p>
-    <p>Pattern Matching can be considered as a variant of dynamic polymorphism where at runtime, different methods
-      can
-      be executed depending on their argument list.</p>
-    <p>Take a look at the following code block. Here we have used the technique of Pattern Matching to calculate the
-      factorial of a number.</p>
-  </article>
 </section>
 {% endblock content %}

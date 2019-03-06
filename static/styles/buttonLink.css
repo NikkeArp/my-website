@@ -6,7 +6,7 @@ a.buttonLink:link, a.buttonLink:visited {
     background-image: linear-gradient(to top left, #1b1b1b, #474747);
 
     color: #d8d8d8;
-    font-size: 24px;
+    font-size: 18px;
     text-decoration: none;
 
     display: flex;

@@ -1,10 +1,11 @@
 {% extends 'base/layout.html' %}
 {% block title %}Syntax Page{% endblock title %}
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">{% endblock head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>{% endblock head %}
 {% block content %}<section>
-  <div class="articles">
-    <article>
+  <div class="articles" id="syntaxArticles">
+    <article id="syntaxArticle">
       <h2>Plan your own syntax-highlighting!</h2>
       <div class="appBox" id="syntaxAppFrame">
         <div class="sampleCodeInput">
@@ -19,7 +20,18 @@
         </div>
         <div class="syntaxTextArea" id="code">
           <div style="font-size:14px; margin:0px;">{{ code }}</div>
-          <input type="color" name="asd" id="sad">
+        </div>
+        <div class="colorpicker">
+            <canvas id="picker" var="5" width="300" height="300"></canvas>
+
+            <div class="controls">
+                <div><label>R</label> <input type="text" id="rVal" /></div>
+                <div><label>G</label> <input type="text" id="gVal" /></div>
+                <div><label>B</label> <input type="text" id="bVal" /></div>
+                <div><label>RGB</label> <input type="text" id="rgbVal" /></div>
+                <div><label>HEX</label> <input type="text" id="hexVal" /></div>
+                <div class="preview"></div>
+            </div>
         </div>
       </div>
     </article>

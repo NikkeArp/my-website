@@ -106,10 +106,10 @@ def syntax_page():
         code = request.form["code"]
         old_code = request.form["code"]
         return render_template("internal/syntax.html", old_code=old_code, code=code.replace(
-            "if", '<span style="color:orange;">if</span>').replace(
-            "return", '<span style="color:orange;">return</span>').replace(
-            "import", '<span style="color:orange;">import</span>').replace(
-            "from", '<span style="color:orange;">from</span>').replace(
+            "if", '<span class="keyword">if</span>').replace(
+            "return", '<span class="keyword">return</span>').replace(
+            "import", '<span class="keyword">import</span>').replace(
+            "from", '<span class="keyword">from</span>').replace(
             "  ", "--")).replace("\r\n", "<br/>").replace(
             "&lt;", "<").replace("&gt;", ">").replace("&#34;", '"').replace("&amp;", "&")
     except:

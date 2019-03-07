@@ -50,6 +50,7 @@ div.appBox {
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 div.sampleCodeText {
@@ -66,4 +67,65 @@ input.syntaxAppBtn {
     margin: 5px 5px 5px 0px;
 
     border-radius: 4px;
+}
+
+
+
+/* colorpicker styles */
+.colorpicker {
+    background-color: inherit;
+    border-radius: 5px 5px 5px 5px;
+    color: inherit;
+    font-size: 12px;
+    width: 460px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#picker {
+    margin: 20px;
+}
+.controls {
+    margin: 10px;
+}
+.controls > div {
+    border: 1px solid #2F2F2F;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.controls label {
+    float: left;
+    font-size: 14px;
+    margin:5px;
+}
+.controls > div input {
+    background-color: #1d1d1d;
+    border: 1px solid #252525;
+    color: inherit;
+    font-size: 14px;
+    height: 2em;
+    text-align: center;
+    width: 80px;
+    margin-left: auto;
+}
+.preview {
+    border-radius: 4px;
+    background-color: inherit;
+    border: 1px solid #252525;
+    height: 2em;
+    width: 116px;
+}
+
+#syntaxArticles {
+    width: 80%;
+}
+#syntaxArticle {
+    width: 100%;
 }

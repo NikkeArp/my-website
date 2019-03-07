@@ -70,19 +70,17 @@ input.syntaxAppBtn {
 }
 
 
-
 /* colorpicker styles */
 .colorpicker {
     background-color: inherit;
     border-radius: 5px 5px 5px 5px;
     color: inherit;
     font-size: 12px;
-    width: 460px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 }
 #picker {
     margin: 20px;

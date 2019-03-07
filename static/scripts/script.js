@@ -4,12 +4,13 @@ $(function () {
     var canvas = document.getElementById('picker');
     var ctx = canvas.getContext('2d');
 
-    var image = new Image();
+    var image = new Image(200, 200);
     image.onload = function () {
         ctx.drawImage(image, 0, 0, image.width, image.height);
     }
 
-    image.src = 'static/colorpicker/colorwheel.png';
+    image.src = 'static/colorpicker/colorwheel1.png';
+
 
     $('#picker').mousemove(function (e) {
         if (canPreview) {

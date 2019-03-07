@@ -14,7 +14,6 @@
             <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
           </div>
           <form action="./syntax" method="POST" id=sampleCodeForm>
-            <!--<input type="text" name="code">-->
             <input type="submit" class="submtButton syntaxAppBtn">
           </form>
         </div>
@@ -22,7 +21,7 @@
           <div style="font-size:14px; margin:0px;">{{ code }}</div>
         </div>
         <div class="colorpicker">
-            <canvas id="picker" var="5" width="300" height="300"></canvas>
+            <canvas id="picker" var="5" width="200" height="200"></canvas>
 
             <div class="controls">
                 <div><label>R</label> <input type="text" id="rVal" /></div>
@@ -31,6 +30,9 @@
                 <div><label>RGB</label> <input type="text" id="rgbVal" /></div>
                 <div><label>HEX</label> <input type="text" id="hexVal" /></div>
                 <div class="preview"></div>
+            </div>
+            <div class="controls">
+              <button type="button">Save Color</button>
             </div>
         </div>
       </div>

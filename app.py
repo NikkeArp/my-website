@@ -98,9 +98,9 @@ def code_page():
     return render_template("internal/code.html")
 
 
-@app.route("/editor")
-def editor_page():
-    return render_template("internal/editor.html")
+@app.route("/syntax")
+def syntax_page():
+    return render_template("internal/syntax.html")
 
 
 if __name__ == '__main__':

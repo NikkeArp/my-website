@@ -11,7 +11,6 @@ $(function () {
 
     image.src = 'static/colorpicker/colorwheel1.png';
 
-
     $('#picker').mousemove(function (e) {
         if (canPreview) {
             var canvasOffset = $(canvas).offset();
@@ -22,7 +21,7 @@ $(function () {
             var pixel = imageData.data;
 
             var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
-            $('.preview').css('backgroundColor', pixelColor);
+            $('.color-result').css('backgroundColor', pixelColor);
             $(".keyword").css("color", pixelColor);
 
             $('#rVal').val(pixel[0]);
@@ -34,7 +33,27 @@ $(function () {
             $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
         }
     });
-    $('#picker').click(function (e) {
-        bCanPreview = !canPreview;
+    $('#picker').click(function () {
+        canPreview = !canPreview;
     });
+
+    var savedIndex = 0
+    $("#saveColorBtn").click(function () {
+        if (savedIndex < 5) {
+            var color = $("#hexVal").val();
+            $(".saved-color")[savedIndex].children[0].innerText = color;
+            $(".saved-color")[savedIndex].children[1].style.backgroundColor = color;
+            $(".saved-color")[savedIndex].style.borderColor = "#636363";
+            if (savedIndex > 0) {
+                $(".saved-color")[savedIndex - 1].style.borderColor = "#2F2F2F";
+            }
+            else {
+                $(".saved-color")[4].style.borderColor = "#2F2F2F";
+            }
+
+            savedIndex++;
+            if (savedIndex === 5)
+                savedIndex = 0;
+        }
+    })
 });

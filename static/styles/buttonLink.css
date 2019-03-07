@@ -68,6 +68,18 @@ input.submtButton {
 
 input.submtButton:hover {
     background-image: linear-gradient(to top left, #2c2c2c, #646464);
-    box-shadow: 2px 3px 10px black;
     cursor: pointer;
+}
+
+button {
+    background-image: linear-gradient(to top left, #2c2c2c, #5c5c5c);
+    color: #d8d8d8;
+    border: none;
+    border-radius: 3px;
+    height: 32px;
+    padding: 5px;
+}
+
+button:hover {
+    background-image: linear-gradient(to top left, #2c2c2c, #646464);
 }

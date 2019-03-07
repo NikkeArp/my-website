@@ -4,36 +4,101 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>{% endblock head %}
 {% block content %}<section>
+
   <div class="articles" id="syntaxArticles">
     <article id="syntaxArticle">
-      <h2>Plan your own syntax-highlighting!</h2>
+      <h2>Design your own syntax-highlighting!</h2>
+      <!----------------------------- Syntax highlight designer ---------------------------->
       <div class="appBox" id="syntaxAppFrame">
-        <div class="sampleCodeInput">
-          <div class="sampleCodeText">
-            <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
-            <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
-          </div>
-          <form action="./syntax" method="POST" id=sampleCodeForm>
-            <input type="submit" class="submtButton syntaxAppBtn">
-          </form>
-        </div>
-        <div class="syntaxTextArea" id="code">
-          <div style="font-size:14px; margin:0px;">{{ code }}</div>
-        </div>
-        <div class="colorpicker">
-            <canvas id="picker" var="5" width="200" height="200"></canvas>
 
-            <div class="controls">
+
+
+        <!-----------------------------CODE INPUTS ----------------------------------------->
+        <div class="upper">
+          <div class="code-box">
+            <div class="sampleCodeInput">
+              <!------- Left textarea -------->
+              <div class="sampleCodeText">
+                <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
+                <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
+              </div>
+              <form action="./syntax" method="POST" id=sampleCodeForm>
+                <input type="submit" class="submtButton syntaxAppBtn" value="Add Sample">
+              </form>
+            </div>
+            <!------ submitted code sample ------->
+            <div class="syntaxTextArea" id="code">
+              <div style="font-size:14px; margin:0px;">{{ code }}</div>
+            </div>
+          </div>
+          <!---------------------------------------------------------------------------------->
+
+
+
+          <!---------------------------------- Colorpicker ----------------------------------->
+          <div class="colorpicker">
+            <!------- Colorwheel --------->
+            <canvas id="picker" var="5" width="200" height="200"></canvas>
+            <!------- Color-values ------->
+            <div class="color-results">
+              <div class="color-values">
                 <div><label>R</label> <input type="text" id="rVal" /></div>
                 <div><label>G</label> <input type="text" id="gVal" /></div>
                 <div><label>B</label> <input type="text" id="bVal" /></div>
                 <div><label>RGB</label> <input type="text" id="rgbVal" /></div>
                 <div><label>HEX</label> <input type="text" id="hexVal" /></div>
-                <div class="preview"></div>
+                <!------- Selected color ------->
+                <div class="color-result"></div>
+              </div>
+              <!------- Saved colors ----------->
+              <div class="saved-colors">
+                <div class="saved-color"><label>#000000</label>
+                  <div></div>
+                </div>
+                <div class="saved-color"><label>#000000</label>
+                  <div></div>
+                </div>
+                <div class="saved-color"><label>#000000</label>
+                  <div></div>
+                </div>
+                <div class="saved-color"><label>#000000</label>
+                  <div></div>
+                </div>
+                <div class="saved-color"><label>#000000</label>
+                  <div></div>
+                </div>
+                <button class="submtButton syntaxAppBtn" id="saveColorBtn">Save</button>
+              </div>
             </div>
-            <div class="controls">
-              <button type="button">Save Color</button>
-            </div>
+          </div>
+          <!----------------------------------------------------------------------------------->
+
+
+
+        </div>
+        <div class="lower">
+          <!--------------------------------- syntax keywords --------------------------------->
+          <div>
+            <table>
+              <!----- 1st Row ----->
+              <tr>
+                <td><button class="codeWord submtButton syntaxAppBtn">Keyword</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Class</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Struct</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Enum</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Operators</button></td>
+              </tr>
+              <!----- 2nd Row ----->
+              <tr>
+                <td><button class="codeWord submtButton syntaxAppBtn">Comments</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Methods</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Foreground</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Background</button></td>
+                <td><button class="codeWord submtButton syntaxAppBtn">Line Numbers</button></td>
+              </tr>
+            </table>
+          </div>
+          <!------------------------------------------------------------------------------------>
         </div>
       </div>
     </article>

@@ -2,6 +2,30 @@
 /****   This stylesheet defines styles for syntax highlight   ****/
 /*****************************************************************/
 
+div.appBox {
+    background-color: #252525;
+    padding: 1.5em;
+    margin: 1em 1em 1em 0px;
+
+    border-radius: 4px;
+    margin-bottom: 2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.upper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* SAMPLE CODE AREA*/
+.code-box {
+    display: flex;
+    flex-direction: row;
+}
 .syntaxTextArea {
     resize: none;
     font-family: monospace;
@@ -18,59 +42,44 @@
 
     margin: 0px;
 }
-
-
+div.sampleCodeText {
+    display: flex;
+    flex-direction: row;
+}
 .syntaxTextArea:focus {
     box-shadow: none;
     border-color: #424242;
     outline: 0px;
 }
-
+#inputLineNum {
+    width: 1em;
+}
+div.code {
+    margin-left: 2em;
+}
 #code {
     height: 15.1em;
     width: 30em;
 }
-
 #codeInput {
     height: 15em;
     width: 30em;
 }
-
-#inputLineNum {
-    width: 1em;
-}
-
-div.appBox {
-    background-color: #252525;
-    padding: 1.5em;
-    margin: 1em 1em 1em 0px;
-
-    border-radius: 4px;
-    margin-bottom: 2em;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-div.sampleCodeText {
-    display: flex;
-    flex-direction: row;
-}
-
-div.code {
-    margin-left: 2em;
-}
-
 input.syntaxAppBtn {
-    width: 6em;
+    border-radius: 3px;
+    height: 32px;
+    padding: 5px;
     margin: 5px 5px 5px 0px;
-
-    border-radius: 4px;
 }
 
 
-/* colorpicker styles */
+
+
+
+
+
+
+/* COLORPICKER AREA */
 .colorpicker {
     background-color: inherit;
     border-radius: 5px 5px 5px 5px;
@@ -83,12 +92,14 @@ input.syntaxAppBtn {
     align-items: flex-start;
 }
 #picker {
-    margin: 20px;
+    margin: 12px;
 }
-.controls {
-    margin: 10px;
+
+.color-results {
+    display: flex;
+    flex-direction: row;
 }
-.controls > div {
+.color-values > div, .saved-colors > div {
     border: 1px solid #2F2F2F;
     margin-bottom: 5px;
     overflow: hidden;
@@ -97,33 +108,63 @@ input.syntaxAppBtn {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
-.controls label {
+.color-values label, .color-results label{
     float: left;
     font-size: 14px;
+    height: 20px;
     margin:5px;
 }
-.controls > div input {
+.color-values > div input {
     background-color: #1d1d1d;
     border: 1px solid #252525;
     color: inherit;
     font-size: 14px;
-    height: 2em;
+    height: 20px;
     text-align: center;
     width: 80px;
     margin-left: auto;
 }
-.preview {
+.color-values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-result {
     border-radius: 4px;
     background-color: inherit;
     border: 1px solid #252525;
-    height: 2em;
-    width: 116px;
+    height: 20px;
+    width: 30px;
 }
 
 #syntaxArticles {
-    width: 80%;
+    width: 76%;
 }
 #syntaxArticle {
     width: 100%;
+}
+
+.saved-colors {
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-color > div {
+    height: 20px;
+    width: 30px;
+    margin: 5px;
+}
+
+
+div.lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.codeWord {
+    width: 160px;
 }

@@ -74,15 +74,14 @@ div.content{
 div.articles {
     background-color: #414141;
     width: 80%;
+    padding-top: 25px;
 }
 
 article {
     width: 80%;
-    margin-left: 2em;
-    margin-top: 2em;
 }
 
-h2 {font-size: 25px;}
+h2 {font-size: 25px; margin: 0px;}
 p {font-size: 18px;}
 
 aside {
@@ -94,8 +93,8 @@ aside {
     
     width: 20%;
 
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     overflow: hidden;
 }
 

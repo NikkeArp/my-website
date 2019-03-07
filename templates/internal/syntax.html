@@ -1,10 +1,27 @@
 {% extends 'base/layout.html' %}
 {% block title %}Syntax Page{% endblock title %}
-{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>{% endblock head %}
+{% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">{% endblock head %}
 {% block content %}<section>
   <div class="articles">
     <article>
-      <h2>SYNTAX PAGE</h2>
+      <h2>Plan your own syntax-highlighting!</h2>
+      <div class="appBox" id="syntaxAppFrame">
+        <div class="sampleCodeInput">
+          <div class="sampleCodeText">
+            <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
+            <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
+          </div>
+          <form action="./syntax" method="POST" id=sampleCodeForm>
+            <!--<input type="text" name="code">-->
+            <input type="submit" class="submtButton syntaxAppBtn">
+          </form>
+        </div>
+        <div class="syntaxTextArea" id="code">
+          <div style="font-size:14px; margin:0px;">{{ code }}</div>
+          <input type="color" name="asd" id="sad">
+        </div>
+      </div>
     </article>
   </div>
 </section>

@@ -2,6 +2,7 @@ from flask import Flask
 from flask import redirect, render_template, request, session, url_for
 import hashlib
 from os import urandom
+import string
 
 app = Flask(__name__)
 
@@ -98,9 +99,21 @@ def code_page():
     return render_template("internal/code.html")
 
 
-@app.route("/syntax")
+@app.route("/syntax", methods=["POST", "GET"])
 def syntax_page():
-    return render_template("internal/syntax.html")
+
+    try:
+        code = request.form["code"]
+        old_code = request.form["code"]
+        return render_template("internal/syntax.html", old_code=old_code, code=code.replace(
+            "if", '<span style="color:orange;">if</span>').replace(
+            "return", '<span style="color:orange;">return</span>').replace(
+            "import", '<span style="color:orange;">import</span>').replace(
+            "from", '<span style="color:orange;">from</span>').replace(
+            "  ", "--")).replace("\r\n", "<br/>").replace(
+            "&lt;", "<").replace("&gt;", ">").replace("&#34;", '"').replace("&amp;", "&")
+    except:
+        return render_template("internal/syntax.html")
 
 
 if __name__ == '__main__':

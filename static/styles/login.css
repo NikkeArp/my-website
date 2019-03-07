@@ -58,23 +58,6 @@ input:focus {
     width: 7.2em;
 }
 
-
-input.submtButton {
-    background-image: linear-gradient(to top left, #2c2c2c, #5c5c5c);
-    color: #d8d8d8;
-    border: none;
-    margin: 1em;
-    height: 3em;
-    width: 12.5em;
-}
-
-input.submtButton:hover {
-    background-image: linear-gradient(to top left, #2c2c2c, #646464);
-    box-shadow: 2px 3px 10px black;
-    cursor: pointer;
-    
-}
-
 #loginForm {
     height: 500px;
     width: 400px;

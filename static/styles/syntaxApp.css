@@ -116,6 +116,11 @@ input.syntaxAppBtn {
     height: 20px;
     margin:5px;
 }
+
+label.color-value {
+    background-color: #1d1d1d;
+}
+
 .color-values > div input {
     background-color: #1d1d1d;
     border: 1px solid #252525;

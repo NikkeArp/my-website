@@ -37,6 +37,10 @@ $(function () {
         canPreview = !canPreview;
     });
 
+    $("#picker").mouseenter(function () {
+        canPreview = !canPreview;
+    });
+
     var savedIndex = 0
     $("#saveColorBtn").click(function () {
         if (savedIndex < 5) {

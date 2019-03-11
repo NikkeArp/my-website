@@ -53,6 +53,7 @@ div.sampleCodeText {
 }
 #inputLineNum {
     width: 1em;
+    height: 15em;
 }
 div.code {
     margin-left: 2em;

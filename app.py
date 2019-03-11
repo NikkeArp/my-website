@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import redirect, render_template, request, session, url_for
 import hashlib
+import json
 from os import urandom
 import string
 
@@ -13,6 +14,8 @@ password = '460c3fa001ac44fb13bcd002358bde73ef6ab1dd19521aa4aca3404f11c7caff7f23
 user = '9b2c112045357c3dfcc994c30fa6a9af2e07ce6b93b9cbc0bfbf0c039cad4d8f162876d6d2d1d84e9075f57621e798f6fef164e5aa28b21c8c09e7dcfa795e31'
 admin_password = 'c4e2828a08ae8731a82e64a9d46736878201138643eaa30195519d90d1a90d70607e6a5ab506a68af225a6c2effc8c627fafe9afb58ffaf2aaa32bd504c2b4a7'
 admin_user = 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec'
+
+syntax = None
 
 
 @app.route("/")
@@ -102,18 +105,46 @@ def code_page():
 @app.route("/syntax", methods=["POST", "GET"])
 def syntax_page():
 
-    try:
-        code = request.form["code"]
-        old_code = request.form["code"]
-        return render_template("internal/syntax.html", old_code=old_code, code=code.replace(
-            "if", '<span class="keyword">if</span>').replace(
-            "return", '<span class="keyword">return</span>').replace(
-            "import", '<span class="keyword">import</span>').replace(
-            "from", '<span class="keyword">from</span>').replace(
-            "  ", "--")).replace("\r\n", "<br/>").replace(
-            "&lt;", "<").replace("&gt;", ">").replace("&#34;", '"').replace("&amp;", "&")
-    except:
-        return render_template("internal/syntax.html")
+    # try:
+    #    code = request.form["code"]
+    #    old_code = request.form["code"]
+    #    return render_template("internal/syntax.html", old_code=old_code, code=code.replace(
+    #        "if", '<span class="keyword">if</span>').replace(
+    #        "return", '<span class="keyword">return</span>').replace(
+    #        "import", '<span class="keyword">import</span>').replace(
+    #        "from", '<span class="keyword">from</span>').replace(
+    #        "  ", "--")).replace("\r\n", "<br/>").replace(
+    #        "&lt;", "<").replace("&gt;", ">").replace("&#34;", '"').replace("&amp;", "&")
+    # except:
+    #    return render_template("internal/syntax.html")
+
+    global syntax
+    if syntax is None:
+        with open("./json/pythonSyntax.json", "r") as file:
+            syntax = json.load(file)
+            language = syntax["meta"]["language"]
+    else:
+        language = syntax["meta"]["language"]
+    return render_template("internal/syntax.html", syntax_json=json.dumps(syntax, sort_keys=True), language=language)
+
+
+@app.route("/syntax/json", methods=["POST", "GET"])
+def update_json():
+
+    global syntax
+    json_string = request.form["json"]
+    syntax = json.loads(json_string)
+
+    with open("./json/pythonSyntax.json", "w") as file:
+        json.dump(syntax, file, indent=2, encoding="utf-8", sort_keys=True)
+
+    # try:
+    #    json_dict = json.loads(json_string)
+    # except:
+    #    return "bad json fuck you :)"
+
+    # return json.dumps(json.loads(json_string), indent=3)
+    return redirect(url_for("syntax_page"))
 
 
 if __name__ == '__main__':

@@ -80,27 +80,43 @@
         </div>
         <div class="lower">
           <!--------------------------------- syntax keywords --------------------------------->
-          <div>
-            <table>
-              <!----- 1st Row ----->
-              <tr>
-                <td><button class="codeWord submtButton syntaxAppBtn">Keyword</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Class</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Struct</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Enum</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Operators</button></td>
-              </tr>
-              <!----- 2nd Row ----->
-              <tr>
-                <td><button class="codeWord submtButton syntaxAppBtn">Comments</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Methods</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Foreground</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Background</button></td>
-                <td><button class="codeWord submtButton syntaxAppBtn">Line Numbers</button></td>
-              </tr>
-            </table>
+          <div class="word-panel">
+              <div class="codeWord">
+                <input type="text" name="language" id="languageInpt" value="{{ language }}" spellcheck="false">
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="foregroundBtn" value="#ffffff">Foreground</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="backgroundBtn" value="#ffffff">Background</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="linenumBtn" value="#ffffff">Line Numbers</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="operatorsBtn" value="#ffffff">Operators</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="keywordsBtn" value="#ffffff">Keywords</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="classBtn" value="#ffffff">Class</button>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="methodsBtn" value="#ffffff">Methods</button>
+              </div>
           </div>
           <!------------------------------------------------------------------------------------>
+          <div class="json-panel">
+            <div>
+              <textarea hidden name="json" class="syntaxTextArea" id="json-text" form="jsonForm" spellcheck="false"> {{ syntax_json }}</textarea>
+            </div>
+            <div>
+              <form action="./syntax/json" method="POST" id="jsonForm">
+                <input type="submit" class="submtButton syntaxAppBtn" value="Update">
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </article>

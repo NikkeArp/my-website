@@ -59,5 +59,44 @@ $(function () {
             if (savedIndex === 5)
                 savedIndex = 0;
         }
-    })
+    });
+
+    jsonData = JSON.parse($("#json-text")[0].value)
+    $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
+    $("#json-text")[0].hidden = false;
+
+    $("#foregroundBtn").click(function (e) {
+        jsonData.foreground.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#backgroundBtn").click(function (e) {
+        jsonData.background.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#keywordsBtn").click(function (e) {
+        jsonData.keywords.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#classBtn").click(function (e) {
+        jsonData.class.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#linenumBtn").click(function (e) {
+        jsonData.linenumbers.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#operatorsBtn").click(function (e) {
+        jsonData.operators.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+    $("#methodsBtn").click(function (e) {
+        jsonData.methods.color = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+
+    $("#languageInpt").focusout(function (e) {
+        jsonData.meta.language = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        console.log("hei");
+    });
 });

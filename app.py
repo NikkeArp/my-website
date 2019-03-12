@@ -120,7 +120,7 @@ def syntax_page():
 
     global syntax
     if syntax is None:
-        with open("./json/pythonSyntax.json", "r") as file:
+        with open("./json/python.json", "r") as file:
             syntax = json.load(file)
             language = syntax["meta"]["language"]
     else:
@@ -135,7 +135,9 @@ def update_json():
     json_string = request.form["json"]
     syntax = json.loads(json_string)
 
-    with open("./json/pythonSyntax.json", "w") as file:
+    language = syntax["meta"]["language"]
+
+    with open(("./json/" + language + ".json"), "w") as file:
         json.dump(syntax, file, indent=2, encoding="utf-8", sort_keys=True)
 
     # try:

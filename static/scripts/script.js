@@ -65,13 +65,32 @@ $(function () {
     $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
     $("#json-text")[0].hidden = false;
 
+    var selected = $("#foregroundBtn");
+
+    $(document).on("click", ".saved-color", function (e) {
+
+        switch (selected.id) {
+            case "foregroundBtn":
+                jsonData.foreground.color = e.target.innerText;
+                break;
+            case "backgroundBtn":
+                jsonData.background.color = e.target.innerText;
+            default:
+                break;
+        }
+
+
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
+    });
+
+
     $("#foregroundBtn").click(function (e) {
-        jsonData.foreground.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+
+        selected = e.target;
+
     });
     $("#backgroundBtn").click(function (e) {
-        jsonData.background.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        selected = e.target;
     });
     $("#keywordsBtn").click(function (e) {
         jsonData.keywords.color = e.target.value;

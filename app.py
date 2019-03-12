@@ -105,19 +105,6 @@ def code_page():
 @app.route("/syntax", methods=["POST", "GET"])
 def syntax_page():
 
-    # try:
-    #    code = request.form["code"]
-    #    old_code = request.form["code"]
-    #    return render_template("internal/syntax.html", old_code=old_code, code=code.replace(
-    #        "if", '<span class="keyword">if</span>').replace(
-    #        "return", '<span class="keyword">return</span>').replace(
-    #        "import", '<span class="keyword">import</span>').replace(
-    #        "from", '<span class="keyword">from</span>').replace(
-    #        "  ", "--")).replace("\r\n", "<br/>").replace(
-    #        "&lt;", "<").replace("&gt;", ">").replace("&#34;", '"').replace("&amp;", "&")
-    # except:
-    #    return render_template("internal/syntax.html")
-
     global syntax
     if syntax is None:
         with open("./json/python.json", "r") as file:
@@ -125,6 +112,7 @@ def syntax_page():
             language = syntax["meta"]["language"]
     else:
         language = syntax["meta"]["language"]
+
     return render_template("internal/syntax.html", syntax_json=json.dumps(syntax, sort_keys=True), language=language)
 
 

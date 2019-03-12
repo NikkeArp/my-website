@@ -72,50 +72,86 @@ $(function () {
         switch (selected.id) {
             case "foregroundBtn":
                 jsonData.foreground.color = e.target.innerText;
+                addColor(e);
                 break;
             case "backgroundBtn":
                 jsonData.background.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "keywordsBtn":
+                jsonData.keywords.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "classBtn":
+                jsonData.class.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "linenumBtn":
+                jsonData.linenumbers.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "operatorsBtn":
+                jsonData.operators.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "methodsBtn":
+                jsonData.methods.color = e.target.innerText;
+                addColor(e);
+                break;
+            case "linenumBtn":
+                jsonData.linenumbers.color = e.target.innerText;
+                addColor(e);
+                break;
             default:
                 break;
         }
-
-
         $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
     });
 
+    function addColor(e) {
+        selected.nextSibling.value = e.target.innerText;
+        selected.parentElement.getElementsByClassName("color-value")[0].innerText = e.target.innerText;
+        var color = selected.parentElement.getElementsByTagName("div")[0];
+        $(color).css("background-color", e.target.innerText);
+    }
+
 
     $("#foregroundBtn").click(function (e) {
-
-        selected = e.target;
-
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#backgroundBtn").click(function (e) {
-        selected = e.target;
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#keywordsBtn").click(function (e) {
-        jsonData.keywords.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#classBtn").click(function (e) {
-        jsonData.class.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#linenumBtn").click(function (e) {
-        jsonData.linenumbers.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#operatorsBtn").click(function (e) {
-        jsonData.operators.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        onSyntaxBtnClicked(e, $(this));
     });
     $("#methodsBtn").click(function (e) {
-        jsonData.methods.color = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+        onSyntaxBtnClicked(e, $(this));
     });
-
     $("#languageInpt").focusout(function (e) {
         jsonData.meta.language = e.target.value;
         $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
-        console.log("hei");
     });
+
+    var earlier;
+    function onSyntaxBtnClicked(e, elem) {
+        selected = e.target;
+        elem.css("box-shadow", "5px 5px 5px #141414");
+
+        try {
+            earlier.css("box-shadow", "none");
+            earlier = elem;
+        } catch (error) {
+            earlier = elem;
+        }
+    }
 });

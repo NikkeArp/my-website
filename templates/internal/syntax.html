@@ -23,7 +23,7 @@
                 <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
               </div>
               <form action="./syntax" method="POST" id=sampleCodeForm>
-                <input type="submit" class="submtButton syntaxAppBtn" value="Add Sample">
+                <input type="submit" class="submtButton syntaxAppBtn" id="add-code-btn" value="Add Sample">
               </form>
             </div>
             <!------ submitted code sample ------->
@@ -40,7 +40,9 @@
           <!---------------------------------- Colorpicker ----------------------------------->
           <div class="colorpicker">
             <!------- Colorwheel --------->
-            <canvas id="picker" var="5" width="200" height="200"></canvas>
+            <div id="picker-box">
+              <canvas id="picker" var="5" width="200" height="200"></canvas>
+            </div>
             <!------- Color-values ------->
             <div class="color-results">
               <div class="color-values">
@@ -86,29 +88,43 @@
         <div class="lower">
           <!--------------------------------- syntax keywords --------------------------------->
           <div class="word-panel">
-              <div class="codeWord">
+              <div class="codeWord" id="languageInput">
                 <input type="text" name="language" id="languageInpt" value="{{ language }}" spellcheck="false">
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="foregroundBtn" value="#ffffff">Foreground</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="backgroundBtn" value="#ffffff">Background</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="linenumBtn" value="#ffffff">Line Numbers</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="operatorsBtn" value="#ffffff">Operators</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="keywordsBtn" value="#ffffff">Keywords</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="classBtn" value="#ffffff">Class</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
                 <button class="submtButton syntaxAppBtn" id="methodsBtn" value="#ffffff">Methods</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
               </div>
           </div>
           <!------------------------------------------------------------------------------------>
@@ -118,7 +134,7 @@
             </div>
             <div>
               <form action="./syntax/json" method="POST" id="jsonForm">
-                <input type="submit" class="submtButton syntaxAppBtn" value="Update">
+                <input type="submit" class="submtButton syntaxAppBtn" id="saveJson" value="Update">
               </form>
             </div>
           </div>

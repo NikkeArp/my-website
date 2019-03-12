@@ -1,15 +1,15 @@
 {
   "background": {
-    "color": "#00f800"
+    "color": "#00d9fe"
   }, 
   "class": {
-    "color": "#00c3fe"
+    "color": "#2233ff"
   }, 
   "foreground": {
-    "color": "#ff3000"
+    "color": "#ea3dfe"
   }, 
   "keywords": {
-    "color": "#fee900", 
+    "color": "#00f902", 
     "contains": [
       "if", 
       "as", 
@@ -45,16 +45,16 @@
     ]
   }, 
   "linenumbers": {
-    "color": "#0340ff"
+    "color": "#ffffff"
   }, 
   "meta": {
-    "language": "Python"
+    "language": "C++"
   }, 
   "methods": {
-    "color": "#0340ff"
+    "color": "#ff2718"
   }, 
   "operators": {
-    "color": "#ff3000", 
+    "color": "#d1fa00", 
     "contains": [
       "+", 
       "-", 

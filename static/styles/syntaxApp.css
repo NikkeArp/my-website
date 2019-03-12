@@ -18,13 +18,18 @@ div.appBox {
 div.upper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 /* SAMPLE CODE AREA*/
 .code-box {
     display: flex;
     flex-direction: row;
+    border: 1px solid #424242;
+    padding: 5px;
+    margin-bottom:  10px;
+
+
 }
 .syntaxTextArea {
     resize: none;
@@ -53,58 +58,76 @@ div.sampleCodeText {
 }
 #inputLineNum {
     width: 1em;
-    height: 15em;
+    height: 18em;
 }
 div.code {
     margin-left: 2em;
 }
 #code {
-    height: 15.1em;
-    width: 30em;
+    height: 18.1em;
+    width: 29.6em;
 }
 #codeInput {
-    height: 15em;
-    width: 30em;
+    height: 18em;
+    width: 29.6em;
 }
+
+#add-code-btn {
+    width: 100px;
+    margin: 5px;
+    margin-left: 0px;
+}
+
 input.syntaxAppBtn {
     border-radius: 3px;
     height: 32px;
     padding: 5px;
     margin: 5px 5px 5px 0px;
+
 }
 
-
-
-
-
-
+*:focus {outline:none}
 
 
 /* COLORPICKER AREA */
 .colorpicker {
     background-color: inherit;
-    border-radius: 5px 5px 5px 5px;
     color: inherit;
     font-size: 12px;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #424242;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
-#picker {
-    margin: 12px;
+
+.colorpicker > div {
+    border: 1px solid #424242;
+    padding: 5px;  
+    height: 285px;
+    margin : 5px;
 }
+
+#picker-box {
+    display: flex;
+    align-items: center;
+}
+
 
 .color-results {
     display: flex;
     flex-direction: row;
 }
 .color-values > div, .saved-colors > div {
-    border: 1px solid #2F2F2F;
+    border: 1px solid #424242;
     margin-bottom: 5px;
     overflow: hidden;
     padding: 5px;
+
+    width: 120px;
 
     display: flex;
     flex-direction: row;
@@ -151,6 +174,10 @@ label.color-value {
 }
 #syntaxArticle {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .saved-colors {
@@ -174,27 +201,47 @@ div.lower {
 .word-panel {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid #424242;
+    padding: 5px;
 }
 
 .codeWord {
     display: flex;
     align-items: center;
+    
 
-    padding: 2px;
-    margin-top: 5px;
+    border: 1px solid #424242;
 }
 
+.codeWord > label {
+    padding: 5px;
+}
+
+.codeWord > * {
+    margin: 10px;
+}
 
 .codeWord > button {
-    width: 200px;
+    width: 150px;
+
+}
+
+.codeWord > div {
+    height: 20px;
+    width: 30px;
+    border: 1px solid #424242;  
+}
+
+#languageInput {
+    display: flex;
+    justify-content: center;
 }
 
 #json-text {
-    width: 620px;
+    width: 545px;
     height: 400px;
     color: #eaebb5;
-
-    
 }
 
 ::-webkit-scrollbar {
@@ -213,10 +260,21 @@ div.lower {
     background: #727272;
   }
 
-.json-panel > div {
-    margin-left: 70px;
-    margin-top: 5px;
+
+#saveJson {
+    width: 60px;
 }
+
+.json-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid #424242;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+
 
 #languageInpt {
     background-color: #313131;

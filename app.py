@@ -140,12 +140,6 @@ def update_json():
     with open(("./json/" + language + ".json"), "w") as file:
         json.dump(syntax, file, indent=2, encoding="utf-8", sort_keys=True)
 
-    # try:
-    #    json_dict = json.loads(json_string)
-    # except:
-    #    return "bad json fuck you :)"
-
-    # return json.dumps(json.loads(json_string), indent=3)
     return redirect(url_for("syntax_page"))
 
 

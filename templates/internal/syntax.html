@@ -21,15 +21,11 @@
                 <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
                 <textarea name="code" form="sampleCodeForm" class="syntaxTextArea" id="codeInput"></textarea>
               </div>
-              <form action="./syntax" method="POST" id=sampleCodeForm>
-                <input type="submit" class="submtButton syntaxAppBtn" id="add-code-btn" value="Add Sample">
-              </form>
+              <button class="submtButton syntaxAppBtn" id="add-code-btn" value="Add Sample">Add Sample</button>
             </div>
             <!------ submitted code sample ------->
             <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
             <div class="syntaxTextArea" id="code">
-              
-              <div style="font-size:14px; margin:0px;">{{ code }}</div>
             </div>
           </div>
           <!---------------------------------------------------------------------------------->

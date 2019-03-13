@@ -22,7 +22,6 @@ $(function () {
 
             var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
             $('.color-result').css('backgroundColor', pixelColor);
-            $(".keyword").css("color", pixelColor);
 
             $('#rVal').val(pixel[0]);
             $('#gVal').val(pixel[1]);
@@ -73,6 +72,7 @@ $(function () {
             case "foregroundBtn":
                 jsonData.foreground.color = e.target.innerText;
                 addColor(e);
+                $(".foreground").css("color", e.target.innerText)
                 break;
             case "backgroundBtn":
                 jsonData.background.color = e.target.innerText;
@@ -81,6 +81,7 @@ $(function () {
             case "keywordsBtn":
                 jsonData.keywords.color = e.target.innerText;
                 addColor(e);
+                $(".keyword").css("color", e.target.innerText)
                 break;
             case "classBtn":
                 jsonData.class.color = e.target.innerText;
@@ -93,6 +94,7 @@ $(function () {
             case "operatorsBtn":
                 jsonData.operators.color = e.target.innerText;
                 addColor(e);
+                $(".operator").css("color", e.target.innerText)
                 break;
             case "methodsBtn":
                 jsonData.methods.color = e.target.innerText;
@@ -154,4 +156,57 @@ $(function () {
             earlier = elem;
         }
     }
+
+
+
+
+    $("#add-code-btn").click(function (e) {
+        var input = $("#codeInput").val().split('\n')
+
+        var lines = [];
+        input.forEach(line => {
+            lines.push(line.split(' '))
+        });
+
+
+        var keywords = jsonData.keywords.contains;
+        var operators = jsonData.operators.contains;
+
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i][0] != "" && lines[i].length > 1) {
+                for (let j = 0; j < lines[i].length; j++) {
+                    if (keywords.includes(lines[i][j])) {
+                        lines[i][j] = '<span class="keyword">' + lines[i][j] + '</span>';
+                    }
+                    else if (operators.includes(lines[i][j]))
+                        lines[i][j] = '<span class="operator">' + lines[i][j] + '</span>';
+                    else
+                        lines[i][j] = '<span class="foreground">' + lines[i][j] + '</span>';
+                }
+            }
+        }
+
+        //console.log(lines);
+
+        var html = "";
+        lines.forEach(line => {
+            line.forEach(word => {
+                html += word + " "
+            });
+            html += "<br>"
+        });
+
+        $("#code").html(html)
+
+    });
+
+
+
+
+
+
+
+
+
+
 });

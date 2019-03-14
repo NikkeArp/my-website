@@ -1,71 +1,112 @@
 $(function () {
-    var canPreview = true;
 
+    //-------COLORPICKER--------\\
+
+    // Setting up the colorwheel
     var canvas = document.getElementById('picker');
-    var ctx = canvas.getContext('2d');
+    var context = canvas.getContext('2d');
 
     var image = new Image(200, 200);
-    image.onload = function () {
-        ctx.drawImage(image, 0, 0, image.width, image.height);
-    }
-
     image.src = 'static/colorpicker/colorwheel1.png';
 
+    image.onload = function () {
+        context.drawImage(image, 0, 0, image.width, image.height);
+    }
+    
+    var canPreview = true;
+
+    
+    /**
+     * @eventhandler
+     * This is an eventhandler for colorpicker mousemove-event.
+     * Checks canPreview flag.
+     * 
+     */
     $('#picker').mousemove(function (e) {
         if (canPreview) {
+
+            // Coordinates
             var canvasOffset = $(canvas).offset();
             var canvasX = Math.floor(e.pageX - canvasOffset.left);
             var canvasY = Math.floor(e.pageY - canvasOffset.top);
 
-            var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
-            var pixel = imageData.data;
+            // Define current pixel
+            var imgData = context.getImageData(canvasX, canvasY, 1, 1);
+            var pixel = imgData.data;
 
+            // Change color-result's background to match selected color.
             var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
             $('.color-result').css('backgroundColor', pixelColor);
 
+            // Set RGB values
             $('#rVal').val(pixel[0]);
             $('#gVal').val(pixel[1]);
             $('#bVal').val(pixel[2]);
             $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
 
+            // Calculate and set hexadecimal value
             var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
             $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
         }
     });
+
+
     $('#picker').click(function () {
         canPreview = !canPreview;
     });
+
 
     $("#picker").mouseenter(function () {
         canPreview = !canPreview;
     });
 
-    var savedIndex = 0
-    $("#saveColorBtn").click(function () {
-        if (savedIndex < 5) {
-            var color = $("#hexVal").val();
-            $(".saved-color")[savedIndex].children[0].innerText = color;
-            $(".saved-color")[savedIndex].children[1].style.backgroundColor = color;
-            $(".saved-color")[savedIndex].style.borderColor = "#636363";
-            if (savedIndex > 0) {
-                $(".saved-color")[savedIndex - 1].style.borderColor = "#2F2F2F";
-            }
-            else {
-                $(".saved-color")[4].style.borderColor = "#2F2F2F";
-            }
 
-            savedIndex++;
-            if (savedIndex === 5)
-                savedIndex = 0;
-        }
+    // Index previously saved-color elemennt
+    var savedIndex = 0
+    /**
+     * Eventhandler for #saveColorBtn click-event.
+     * Sets color to element on next index. Sets highlighting to current field.
+     * Removes highlighting from previos field.
+     */
+    $("#saveColorBtn").click(function () {
+
+        var color = $("#hexVal").val();
+
+        // Set selected color to field
+        $(".saved-color")[savedIndex].children[0].innerText = color;
+        $(".saved-color")[savedIndex].children[1].style.backgroundColor = color;
+        $(".saved-color")[savedIndex].style.borderColor = "#636363";
+        
+        //Remove previous highlighting.
+        if (savedIndex > 0) 
+            $(".saved-color")[savedIndex - 1].style.borderColor = "#2F2F2F";
+        else 
+            $(".saved-color")[4].style.borderColor = "#2F2F2F";
+
+        // Update index. If index hits 5 -> Reset it to 0.    
+        savedIndex++;
+        if (savedIndex === 5)
+            savedIndex = 0;
     });
 
+    
+    // set JSON data for language. Displays data to #json-text textfield element.
     jsonData = JSON.parse($("#json-text")[0].value)
     $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
     $("#json-text")[0].hidden = false;
 
-    var selected = $("#foregroundBtn");
 
+    // Set up for saved-color click-eventhandler.
+    var selected = $("#foregroundBtn");
+    var earlier;
+
+
+    /**
+     * Eventhandler for each element of .save-color class.
+     * Sets color based on event target's id.
+     * Sets selected color to json, color-label and color div.
+     * Displays Json with updated values.
+     */
     $(document).on("click", ".saved-color", function (e) {
 
         switch (selected.id) {
@@ -110,6 +151,13 @@ $(function () {
         $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
     });
 
+
+    /**
+     * Helper function for .saved-color eventhandler.
+     * Sets Hexadecimal color value to selected element's label
+     * and background to element's color display div.
+     * @param {*} e 
+     */
     function addColor(e) {
         selected.nextSibling.value = e.target.innerText;
         selected.parentElement.getElementsByClassName("color-value")[0].innerText = e.target.innerText;
@@ -118,6 +166,19 @@ $(function () {
     }
 
 
+    /**
+     * @eventhandler
+     * This is an eventhandler for #languageInpt focusout-event.
+     * Sets language from user input to json-file.
+     * Refreshes json text.
+     */
+    $("#languageInpt").focusout(function (e) {
+        jsonData.meta.language = e.target.value;
+        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
+    });
+
+
+    // Sets Eventhandlers to syntax-buttons
     $("#foregroundBtn").click(function (e) {
         onSyntaxBtnClicked(e, $(this));
     });
@@ -139,12 +200,16 @@ $(function () {
     $("#methodsBtn").click(function (e) {
         onSyntaxBtnClicked(e, $(this));
     });
-    $("#languageInpt").focusout(function (e) {
-        jsonData.meta.language = e.target.value;
-        $("#json-text")[0].value = JSON.stringify(jsonData, null, 2);
-    });
 
-    var earlier;
+
+    /**
+     * Helper function for syntaxButtons-click eventhandlers.
+     * Sets global variable selected to event's target.
+     * Highligths selected element with css box-shadow.
+     * Refreshes earlier element and removes box-shadow.
+     * @param {event} e 
+     * @param {target} elem 
+     */
     function onSyntaxBtnClicked(e, elem) {
         selected = e.target;
         elem.css("box-shadow", "5px 5px 5px #141414");
@@ -158,55 +223,96 @@ $(function () {
     }
 
 
-
-
+    /**
+     * @eventhandler
+     * 
+     * This is and eventhandler for #add-code-btn click-event.
+     * It takes user's code input, splits it into lines and further
+     * into words. (3d array)
+     * 
+     * Then it compares the words to keywords, operators, etc in specified language's
+     * syntax.json-file. If a match is found, it wraps the word in html span-tags.
+     * class of the span-tag is defined by where the match was found in json. 
+     * 
+     * @example:
+     *    import
+     *      --> <span class="keyword">import</span>
+     *    replace
+     *      --> <span class="foreground">replace</span>
+     *    from
+     *      --> <span class="keyword">from<span>
+     *    string
+     *      --> <span class="foreground">string<span>
+     *
+     * Finally compiles all tags to html-variable.
+     * Empty lines are replaced with <br/>-tag.
+     * Html-variable is then inserted to #code-div's innerHTML. 
+     */
     $("#add-code-btn").click(function (e) {
-        var input = $("#codeInput").val().split('\n')
 
+        // User code input splitted to lines and then into words.
+        var input = $("#codeInput").val().split('\n')
         var lines = [];
         input.forEach(line => {
             lines.push(line.split(' '))
         });
 
-
+        // syntax words specified in language's syntax.json-file
         var keywords = jsonData.keywords.contains;
         var operators = jsonData.operators.contains;
 
+        var html = "";
         for (let i = 0; i < lines.length; i++) {
+
             if (lines[i][0] != "" && lines[i].length > 1) {
                 for (let j = 0; j < lines[i].length; j++) {
-                    if (keywords.includes(lines[i][j])) {
-                        lines[i][j] = '<span class="keyword">' + lines[i][j] + '</span>';
+                    var word = lines[i][j];
+                    if (keywords.includes(word)) {
+                        word = '<span class="keyword">' + word + " " + '</span>';
+                        html += word;
                     }
-                    else if (operators.includes(lines[i][j]))
-                        lines[i][j] = '<span class="operator">' + lines[i][j] + '</span>';
-                    else
-                        lines[i][j] = '<span class="foreground">' + lines[i][j] + '</span>';
+                    else if (operators.includes(word)) {
+                        word = '<span class="operator">' + word + " " + '</span>';
+                        html += word;
+                    }
+                    else {
+                        word = '<span class="foreground">' + word + " " + '</span>';
+                        html += word;
+                    }
                 }
             }
+            html += "<br/>"
         }
-
-        //console.log(lines);
-
-        var html = "";
-        lines.forEach(line => {
-            line.forEach(word => {
-                html += word + " "
-            });
-            html += "<br>"
-        });
-
-        $("#code").html(html)
-
+        // Inserts results to #code's innerHTML.
+        $("#code").html(html);
     });
 
 
+    /**
+     * Textarea keydown-eventhandler.
+     * Enables Tab html5-textarea.
+     */
+    $("textarea").keydown(function(e) {
+        
+        // tab pressed.
+        if(e.keyCode === 9) {
 
-
-
-
-
-
-
-
+            // get caret position/selection
+            var start = this.selectionStart;
+                end = this.selectionEnd;
+    
+            var $this = $(this);
+    
+            // set textarea value to: text before caret + tab + text after caret
+            $this.val($this.val().substring(0, start)
+                        + "\t"
+                        + $this.val().substring(end));
+    
+            // put caret at right position again
+            this.selectionStart = this.selectionEnd = start + 1;
+    
+            // prevent the focus lose
+            return false;
+        }
+    });
 });

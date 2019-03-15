@@ -87,37 +87,42 @@
                 <input type="text" name="language" id="languageInpt" value="{{ language }}" spellcheck="false">
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="foregroundBtn" value="#ffffff">Foreground</button>
+                <button class="submtButton syntaxAppBtn" id="foregroundBtn" value="#000000">Foreground</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="backgroundBtn" value="#ffffff">Background</button>
+                <button class="submtButton syntaxAppBtn" id="backgroundBtn" value="#000000">Background</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="linenumBtn" value="#ffffff">Line Numbers</button>
+                <button class="submtButton syntaxAppBtn" id="linenumBtn" value="#000000">Line Numbers</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="operatorsBtn" value="#ffffff">Operators</button>
+                <button class="submtButton syntaxAppBtn" id="operatorsBtn" value="#000000">Operators</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="keywordsBtn" value="#ffffff">Keywords</button>
+                <button class="submtButton syntaxAppBtn" id="keywordsBtn" value="#000000">Keywords</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="classBtn" value="#ffffff">Class</button>
+                <button class="submtButton syntaxAppBtn" id="classBtn" value="#000000">Class</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
               <div class="codeWord">
-                <button class="submtButton syntaxAppBtn" id="methodsBtn" value="#ffffff">Methods</button>
+                <button class="submtButton syntaxAppBtn" id="methodsBtn" value="#000000">Methods</button>
+                <label class="color-value" >#000000</label>
+                <div style="height:20px; width:30px;"></div>
+              </div>
+              <div class="codeWord">
+                <button class="submtButton syntaxAppBtn" id="numbersBtn" value="#000000">Numbers</button>
                 <label class="color-value" >#000000</label>
                 <div style="height:20px; width:30px;"></div>
               </div>
@@ -129,6 +134,11 @@
             </div>
             <div>
               <form action="./syntax/json" method="POST" id="jsonForm">
+                <select name="selectJson" id="selectJsonDropdown">
+                  <option value="Python">Python</option>
+                  <option value="C++">C++</option>
+                  <option value="Java">Java</option>
+                </select>
                 <input type="submit" class="submtButton syntaxAppBtn" id="saveJson" value="Update">
               </form>
             </div>

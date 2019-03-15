@@ -135,7 +135,7 @@ $(function () {
             case "operatorsBtn":
                 jsonData.operators.color = e.target.innerText;
                 addColor(e);
-                $(".operator").css("color", e.target.innerText)
+                $(".operator").css("color", e.target.innerText);
                 break;
             case "methodsBtn":
                 jsonData.methods.color = e.target.innerText;
@@ -144,6 +144,10 @@ $(function () {
             case "linenumBtn":
                 jsonData.linenumbers.color = e.target.innerText;
                 addColor(e);
+            case "numbersBtn":
+                jsonData.numbers.color = e.target.innerText;
+                addColor(e);
+                $(".number").css("color", e.target.innerText);
                 break;
             default:
                 break;
@@ -163,6 +167,7 @@ $(function () {
         selected.parentElement.getElementsByClassName("color-value")[0].innerText = e.target.innerText;
         var color = selected.parentElement.getElementsByTagName("div")[0];
         $(color).css("background-color", e.target.innerText);
+        console.log(e);
     }
 
 
@@ -200,6 +205,9 @@ $(function () {
     $("#methodsBtn").click(function (e) {
         onSyntaxBtnClicked(e, $(this));
     });
+    $("#numbersBtn").click(function (e) {
+        onSyntaxBtnClicked(e, $(this));
+      })
 
 
     /**
@@ -220,6 +228,7 @@ $(function () {
         } catch (error) {
             earlier = elem;
         }
+        console.log(selected);
     }
 
 
@@ -254,7 +263,8 @@ $(function () {
         var input = $("#codeInput").val().split('\n')
         var lines = [];
         input.forEach(line => {
-            line = line.split(' ');
+            if (line.includes(' '))
+                line = line.split(' ');
             lines.push(line)
         });
 
@@ -276,6 +286,8 @@ $(function () {
                         html += '<span class="operator">' + word + " " + '</span>';
                     else if (word === '') 
                         html += '<span class="whitespace">' + '&nbsp' + '</span>';
+                    else if (!isNaN(word))
+                        html += '<span class="number">' + word + ' ' + '</span>';
                     else 
                         html += '<span class="foreground">' + word + " " + '</span>';
                 }

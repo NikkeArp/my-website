@@ -45,6 +45,9 @@
       "in"
     ]
   },
+  "numbers": {
+    "color": "#fee900"
+  },
   "linenumbers": {
     "color": "#ffffff"
   },
@@ -57,6 +60,7 @@
   "operators": {
     "color": "#d1fa00",
     "contains": [
+      ":",
       ">",
       "<",
       "+",

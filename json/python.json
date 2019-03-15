@@ -45,6 +45,9 @@
       "in"
     ]
   },
+  "numbers": {
+    "color": "#fee900"
+  },
   "linenumbers": {
     "color": "#0340ff"
   },

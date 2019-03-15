@@ -57,6 +57,7 @@
   "operators": {
     "color": "#ff3000",
     "contains": [
+      ":",
       ">",
       "<",
       "+",

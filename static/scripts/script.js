@@ -254,8 +254,11 @@ $(function () {
         var input = $("#codeInput").val().split('\n')
         var lines = [];
         input.forEach(line => {
-            lines.push(line.split(' '))
+            line = line.split(' ');
+            lines.push(line)
         });
+
+        console.log(lines);
 
         // syntax words specified in language's syntax.json-file
         var keywords = jsonData.keywords.contains;
@@ -264,21 +267,17 @@ $(function () {
         var html = "";
         for (let i = 0; i < lines.length; i++) {
 
-            if (lines[i][0] != "" && lines[i].length > 1) {
+            if (lines[i][0] != "\n" && lines[i].length > 1) {
                 for (let j = 0; j < lines[i].length; j++) {
                     var word = lines[i][j];
-                    if (keywords.includes(word)) {
-                        word = '<span class="keyword">' + word + " " + '</span>';
-                        html += word;
-                    }
-                    else if (operators.includes(word)) {
-                        word = '<span class="operator">' + word + " " + '</span>';
-                        html += word;
-                    }
-                    else {
-                        word = '<span class="foreground">' + word + " " + '</span>';
-                        html += word;
-                    }
+                    if (keywords.includes(word))
+                        html += '<span class="keyword">' + word + " " + '</span>';
+                    else if (operators.includes(word)) 
+                        html += '<span class="operator">' + word + " " + '</span>';
+                    else if (word === '') 
+                        html += '<span class="whitespace">' + '&nbsp' + '</span>';
+                    else 
+                        html += '<span class="foreground">' + word + " " + '</span>';
                 }
             }
             html += "<br/>"
@@ -305,11 +304,11 @@ $(function () {
     
             // set textarea value to: text before caret + tab + text after caret
             $this.val($this.val().substring(0, start)
-                        + "\t"
+                        + "    "
                         + $this.val().substring(end));
     
             // put caret at right position again
-            this.selectionStart = this.selectionEnd = start + 1;
+            this.selectionStart = this.selectionEnd = start + 4;
     
             // prevent the focus lose
             return false;

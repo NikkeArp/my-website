@@ -15,6 +15,7 @@
  *  These features are achieved with textarea's keydown
  *  event. To make thigns easier with transfering data about current line,
  *  I have defined Line-class at the end of the file.
+ *  Stack class is defined to hold user's actions for undo and redo.
  */
 
 $(function () {
@@ -26,6 +27,9 @@ $(function () {
     
     $("textarea").keydown(function (e) {
 
+        /**
+         * Event for TAB
+         */
         if (e.keyCode === 9) {
 
             // Set up variables.
@@ -87,10 +91,19 @@ $(function () {
                 return false;
         
             }
-
         }
 
+        /**
+         * Event for CTRL + X
+         */
         else if (event.keyCode === 90) {
+            e.preventDefault();
+        }
+
+        /**
+         * Event for CTRL + Y
+         */
+        else if (event.keyCode == 89) {
             e.preventDefault();
         }
     });
@@ -136,11 +149,28 @@ $(function () {
     }
 })
 
+
+/**
+ * Class for stack-object instances.
+ * Implemented in a way that items can't be accessed all
+ * at once. Only allows acces to elements in LIFO princible.
+ * 
+ * Stack with following methods:
+ *      isEmpty()
+ *      push()
+ *      peek()
+ *      pop()
+ */
 class Stack {
 
     constructor() {
+
         var items = [];
 
+        /**
+         * Returns false if stack is empty.
+         * Otherwise returns true.
+         */
         this.isEmpty = function () {
 
             if (items.length === 0)
@@ -148,16 +178,30 @@ class Stack {
             return false;
         }
 
+
+        /**
+         * Pushes new item on top of the stack.
+         */
         this.push = function (item) {
             items.push(item);
         }
 
+
+        /**
+         * Peeks on top of the stack.
+         * Doesn't remove item on top of the stack.
+         */
         this.peek = function () {
             if (this.isEmpty())
                 return "Empty Stack";
             return items[items.length - 1];
         }
 
+        
+        /**
+         * Returns the item on top of the stack
+         * and removes it from stack.
+         */
         this.pop = function () {
             if (this.isEmpty())
                 return "Empty Stack";

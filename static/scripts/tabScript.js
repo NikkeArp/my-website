@@ -60,7 +60,7 @@ $(function () {
                 }
 
                 var cursorMoved = 0;
-                while (cursorMoved <= 4 && newLine[0] === " ") {
+                while (cursorMoved < 2 && newLine[0] === " ") {
                     newLine = newLine.substring(1, cursorLine.length);
                     cursorMoved++;
                 }
@@ -78,7 +78,7 @@ $(function () {
             }
             else {
                 newLine = newLine.substring(0, (cursorLocation - cursorLine.charsBefore)) +
-                    "    " + newLine.substring((cursorLocation - cursorLine.charsBefore), end);
+                    "  " + newLine.substring((cursorLocation - cursorLine.charsBefore), end);
                 let result = "";
                 lines[cursorLine.lineNum - 1].content = newLine;
                 lines.forEach(line => {
@@ -87,7 +87,7 @@ $(function () {
 
                 $(this).val(result);
 
-                this.selectionStart = this.selectionEnd = cursorLocation + 4;
+                this.selectionStart = this.selectionEnd = cursorLocation + 2;
                 return false;
         
             }
@@ -156,10 +156,10 @@ $(function () {
  * at once. Only allows acces to elements in LIFO princible.
  * 
  * Stack with following methods:
- *      isEmpty()
- *      push()
- *      peek()
- *      pop()
+ *    isEmpty()
+ *    push()
+ *    peek()
+ *    pop()
  */
 class Stack {
 
@@ -197,7 +197,7 @@ class Stack {
             return items[items.length - 1];
         }
 
-        
+
         /**
          * Returns the item on top of the stack
          * and removes it from stack.

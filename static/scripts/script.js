@@ -296,33 +296,4 @@ $(function () {
         // Inserts results to #code's innerHTML.
         $("#code").html(html);
     });
-
-
-    /**
-     * Textarea keydown-eventhandler.
-     * Enables Tab html5-textarea.
-     */
-    $("textarea").keydown(function(e) {
-        
-        // tab pressed.
-        if(e.keyCode === 9) {
-
-            // get caret position/selection
-            var start = this.selectionStart;
-                end = this.selectionEnd;
-    
-            var $this = $(this);
-    
-            // set textarea value to: text before caret + tab + text after caret
-            $this.val($this.val().substring(0, start)
-                        + "    "
-                        + $this.val().substring(end));
-    
-            // put caret at right position again
-            this.selectionStart = this.selectionEnd = start + 4;
-    
-            // prevent the focus lose
-            return false;
-        }
-    });
 });

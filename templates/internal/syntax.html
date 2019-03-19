@@ -2,7 +2,8 @@
 {% block title %}Syntax Page{% endblock title %}
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">
-    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>{% endblock head %}
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/tabScript.js') }}"></script>{% endblock head %}
 {% block content %}<section>
 
   <div class="articles" id="syntaxArticles">
@@ -25,8 +26,7 @@
             </div>
             <!------ submitted code sample ------->
             <textarea class="syntaxTextArea" id="inputLineNum" placeholder="123456789" readonly></textarea>
-            <div class="syntaxTextArea" id="code">
-            </div>
+            <div class="syntaxTextArea" id="code"></div>
           </div>
           <!---------------------------------------------------------------------------------->
 

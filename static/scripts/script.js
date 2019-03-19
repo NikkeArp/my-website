@@ -233,7 +233,6 @@ $(function () {
 
 
     /**
-     * @eventhandler
      * 
      * This is and eventhandler for #add-code-btn click-event.
      * It takes user's code input, splits it into lines and further

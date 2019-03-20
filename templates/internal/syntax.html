@@ -3,7 +3,10 @@
 {% block head %}<script src="{{ url_for('static', filename='scripts/accountHeader.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/syntaxApp.css') }}">
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='scripts/tabScript.js') }}"></script>{% endblock head %}
+    <script src="{{ url_for('static', filename='scripts/dataStructs.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/objects.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/colorPicker.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/textarea.js') }}"></script>{% endblock head %}
 {% block content %}<section>
 
   <div class="articles" id="syntaxArticles">
@@ -41,11 +44,11 @@
             <!------- Color-values ------->
             <div class="color-results">
               <div class="color-values">
-                <div><label>R</label> <input type="text" id="rVal" /></div>
-                <div><label>G</label> <input type="text" id="gVal" /></div>
-                <div><label>B</label> <input type="text" id="bVal" /></div>
-                <div><label>RGB</label> <input type="text" id="rgbVal" /></div>
-                <div><label>HEX</label> <input type="text" id="hexVal" /></div>
+                <div><label>R</label> <input type="text" id="RedValue" /></div>
+                <div><label>G</label> <input type="text" id="GreenValue" /></div>
+                <div><label>B</label> <input type="text" id="BlueValue" /></div>
+                <div><label>RGB</label> <input type="text" id="RGBValue" /></div>
+                <div><label>HEX</label> <input type="text" id="HEXValue" /></div>
                 <!------- Selected color ------->
                 <div class="color-result"></div>
               </div>

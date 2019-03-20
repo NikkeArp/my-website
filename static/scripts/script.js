@@ -1,95 +1,25 @@
+'use strict';
+
+/**
+ * @author Niklas Seppälä
+ * @date 20.3.2019
+ * @license MIT
+ * 
+ *  This script creates colorpicker.
+ *      Tab         : Moves current line 4 spaces forward.
+ *      Shift + tab : Moves current line maximum of 4 spaces backwards.
+ *      Ctr + Z     : Undo
+ *      Ctr + Y     : Redo
+ * 
+ *  These features are achieved with textarea's keydown
+ *  event. To make thigns easier with transfering data about current line,
+ *  I have defined Line-class at the end of the file.
+ *  Stack class is defined to hold user's actions for undo and redo.
+ */
+
+
 $(function () {
 
-    //-------COLORPICKER--------\\
-
-    // Setting up the colorwheel
-    var canvas = document.getElementById('picker');
-    var context = canvas.getContext('2d');
-
-    var image = new Image(200, 200);
-    image.src = 'static/colorpicker/colorwheel1.png';
-
-    image.onload = function () {
-        context.drawImage(image, 0, 0, image.width, image.height);
-    }
-    
-    var canPreview = true;
-
-    
-    /**
-     * @eventhandler
-     * This is an eventhandler for colorpicker mousemove-event.
-     * Checks canPreview flag.
-     * 
-     */
-    $('#picker').mousemove(function (e) {
-        if (canPreview) {
-
-            // Coordinates
-            var canvasOffset = $(canvas).offset();
-            var canvasX = Math.floor(e.pageX - canvasOffset.left);
-            var canvasY = Math.floor(e.pageY - canvasOffset.top);
-
-            // Define current pixel
-            var imgData = context.getImageData(canvasX, canvasY, 1, 1);
-            var pixel = imgData.data;
-
-            // Change color-result's background to match selected color.
-            var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
-            $('.color-result').css('backgroundColor', pixelColor);
-
-            // Set RGB values
-            $('#rVal').val(pixel[0]);
-            $('#gVal').val(pixel[1]);
-            $('#bVal').val(pixel[2]);
-            $('#rgbVal').val(pixel[0] + ',' + pixel[1] + ',' + pixel[2]);
-
-            // Calculate and set hexadecimal value
-            var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
-            $('#hexVal').val('#' + ('0000' + dColor.toString(16)).substr(-6));
-        }
-    });
-
-
-    $('#picker').click(function () {
-        canPreview = !canPreview;
-    });
-
-
-    $("#picker").mouseenter(function () {
-        canPreview = !canPreview;
-    });
-
-
-    // Index previously saved-color elemennt
-    var savedIndex = 0
-    /**
-     * Eventhandler for #saveColorBtn click-event.
-     * Sets color to element on next index. Sets highlighting to current field.
-     * Removes highlighting from previos field.
-     */
-    $("#saveColorBtn").click(function () {
-
-        var color = $("#hexVal").val();
-
-        // Set selected color to field
-        $(".saved-color")[savedIndex].children[0].innerText = color;
-        $(".saved-color")[savedIndex].children[1].style.backgroundColor = color;
-        $(".saved-color")[savedIndex].style.borderColor = "#636363";
-        
-        //Remove previous highlighting.
-        if (savedIndex > 0) 
-            $(".saved-color")[savedIndex - 1].style.borderColor = "#2F2F2F";
-        else 
-            $(".saved-color")[4].style.borderColor = "#2F2F2F";
-
-        // Update index. If index hits 5 -> Reset it to 0.    
-        savedIndex++;
-        if (savedIndex === 5)
-            savedIndex = 0;
-    });
-
-    
     // set JSON data for language. Displays data to #json-text textfield element.
     jsonData = JSON.parse($("#json-text")[0].value)
     $("#json-text")[0].value = JSON.stringify(jsonData, null, 2)
